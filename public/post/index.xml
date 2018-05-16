@@ -6,10 +6,38 @@
     <description>Recent content in Posts on A Hugo website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 15 May 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 16 May 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>cl dog 3</title>
+      <link>/2018/05/16/cl-dog-3/</link>
+      <pubDate>Wed, 16 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/05/16/cl-dog-3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cl dog second basel</title>
+      <link>/2018/05/16/cl-dog-second-basel/</link>
+      <pubDate>Wed, 16 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/05/16/cl-dog-second-basel/</guid>
+      <description>Introduction In this lesson, we will zoom into the Basel I, Basel II, and Basel III Capital Accords. These are regulatory guidelines, which have been introduced for financial institutions in order to appropriately determine their provisions and capital buffers to protect them against various risks they are exposed to. One important type of risk is obviously credit risk, and in this lesson we will extensively discuss the impact of these accords on the development of PD, LGD, and EAD credit risk models.</description>
+    </item>
+    
+    <item>
+      <title>one cl dog</title>
+      <link>/2018/05/16/one-cl-dog/</link>
+      <pubDate>Wed, 16 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/05/16/one-cl-dog/</guid>
+      <description>Lesson Overview
+Introduction Granting credit to both retail and corporate customers is the core business of a bank. In doing so, banks need to have adequate systems to decide to whom to grant credit or not. Credit scoring is a key risk assessment technique, which analyzes an obligor’s credit risk. Essentially, credit scoring aims at quantifying the likelihood that an obligor will repay the debt or not. The outcome of the credit scoring exercise is either an accept or reject decision.</description>
+    </item>
     
     <item>
       <title>read underwrite</title>
