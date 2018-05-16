@@ -12,12 +12,22 @@
     
     
     <item>
+      <title>cl 4 dog</title>
+      <link>/2018/05/16/cl-4-dog/</link>
+      <pubDate>Wed, 16 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/05/16/cl-4-dog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>cl dog 3</title>
       <link>/2018/05/16/cl-dog-3/</link>
       <pubDate>Wed, 16 May 2018 00:00:00 +0000</pubDate>
       
       <guid>/2018/05/16/cl-dog-3/</guid>
-      <description></description>
+      <description>Lesson 3: Preparing the Data for Credit Scoring • Lesson Overview
+Introduction Data is the key ingredient to any analytical credit risk model, be it a PD, LGD, or EAD model. So, it is of critical importance that you prepare the data properly. Worth mentioning here is the garbage-in-garbage-out (GIGO) principle, which essentially states that messy data will yield messy analytical models. Hence, it is of utmost importance that every data preparation step is carefully justified, carried out, validated, and documented before proceeding with further analysis.</description>
     </item>
     
     <item>
