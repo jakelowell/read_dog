@@ -12,12 +12,23 @@
     
     
     <item>
+      <title>6 cl dog 6</title>
+      <link>/2018/05/16/6-cl-dog-6/</link>
+      <pubDate>Wed, 16 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/05/16/6-cl-dog-6/</guid>
+      <description>Introduction Variable selection is an important activity during model creation. The idea of variable selection is to carefully choose those variables that are needed to make a default risk classification. Credit scoring data sets typically contain many variables. Especially, behavioral scoring data sets can easily contain a few hundred variables. However, not all variables will turn out to be relevant to the scorecard.
+In this lesson, we will outline a step-by-step approach to do variable selection.</description>
+    </item>
+    
+    <item>
       <title>cl 4 dog</title>
       <link>/2018/05/16/cl-4-dog/</link>
       <pubDate>Wed, 16 May 2018 00:00:00 +0000</pubDate>
       
       <guid>/2018/05/16/cl-4-dog/</guid>
-      <description></description>
+      <description>Introduction In this lesson, we focus on developing a credit scoring model in a PD context. We hereby assume that the data has been prepared and is now ready to be analyzed using a classification model. We will discuss how to develop classification models for both retail as well as corporate portfolios.
+The aim of classification is to discriminate between the good and bad obligors in terms of default behavior. In this lesson, we start by giving a clear explanation of the classification problem.</description>
     </item>
     
     <item>
@@ -28,6 +39,16 @@
       <guid>/2018/05/16/cl-dog-3/</guid>
       <description>Lesson 3: Preparing the Data for Credit Scoring • Lesson Overview
 Introduction Data is the key ingredient to any analytical credit risk model, be it a PD, LGD, or EAD model. So, it is of critical importance that you prepare the data properly. Worth mentioning here is the garbage-in-garbage-out (GIGO) principle, which essentially states that messy data will yield messy analytical models. Hence, it is of utmost importance that every data preparation step is carefully justified, carried out, validated, and documented before proceeding with further analysis.</description>
+    </item>
+    
+    <item>
+      <title>cl dog 5</title>
+      <link>/2018/05/16/cl-dog-5/</link>
+      <pubDate>Wed, 16 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/05/16/cl-dog-5/</guid>
+      <description>Introduction After you have created a classification model, you want to know how well the model performs in predicting the default risk of new observations. New observations are observations or customers that were not used to develop the model. In other words, they were not used to estimate the parameters or train the model.
+Measuring the performance of an application scorecard, behavioral scorecard, or corporate credit scoring model is by no means a trivial exercise.</description>
     </item>
     
     <item>

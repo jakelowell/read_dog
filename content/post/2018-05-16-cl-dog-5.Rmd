@@ -1,0 +1,116 @@
+---
+title: cl dog 5
+author: ''
+date: '2018-05-16'
+slug: cl-dog-5
+categories: []
+tags: []
+---
+
+
+Introduction
+After you have created a classification model, you want to know how well the model performs in predicting the default risk of new observations. New observations are observations or customers that were not used to develop the model. In other words, they were not used to estimate the parameters or train the model.
+
+Measuring the performance of an application scorecard, behavioral scorecard, or corporate credit scoring model is by no means a trivial exercise. First, a decision needs to be made about data set split-up. In other words, on what data set are we going to measure performance? As we will discuss, this will mainly depend upon the number of observations available. Next, a decision needs to be made about the performance measure. Also, here various choices are available, both for binary as well as multiclass classification. In this lesson, we will zoom into both of these decisions.
+
+
+In this lesson, you learn to do the following:
+•	describe the following methods of splitting a data set: split-sample method, cross validation, single-sample method, and bootstrapping
+•	describe the following performance measures for binary classification: confusion matrix, receiver operating characteristic (ROC) curve and area under the curve (AUC), cumulative accuracy profile curve and accuracy ratio, lift curve, Kolmogorov-Smirnov distance, and Mahalanobis distance
+•	describe the following performance measures for multiclass classification: confusion matrix, notch-difference graph, and area under the ROC curve
+
+
+Text Version	Collapse  Print
+Splitting the Data Set
+
+Split-Sample Method
+The decision how to split up the data set for performance measurement depends upon its size. In case of large data sets, say more than 1000 observations, the data set can be split up into training and testing data. The training data, also called development or estimation data, will be used to build the model, whereas the testing data, also called the hold-out data, will be used to calculate its performance. There should be a strict separation between training and testing data. No training data observation can be used for testing or vice versa. A common split-up is two-thirds of the observations in the training data and the remaining one-third in the testing data. Note that, in case of decision trees, the validation data, which we discussed earlier for making the stopping decision, is a separate data set. You cannot use the testing data as the validation data, since it is actively being used during model development.
+
+A stratified split-up can also be adopted, whereby the class distribution in the training and testing data is equal. So suppose there are 90% Goods and 10% Bads in the original data. Then in case of a stratified split, you will have exactly 90% Goods and 10% Bads in the training and testing data.
+
+You can see this illustrated right here. The data is split into training and testing data. The training data is used to build a logistic regression model, which is then applied on the testing data. The scores obtained on the testing data are then used for performance calculation. This basically boils down to comparing the Good/Bad column to the Score column.
+Cross Validation
+In case of small- to medium-sized data sets (say, between 100 and 1000 observations), a tailored data set split-up needs to be adopted. A very popular scheme here is cross validation. In cross validation, the data is split into k folds (for example, 10 folds), as you can see depicted in the figure. A model is then trained on k-1 training folds and tested on the remaining validation fold. This is repeated for all possible validation folds resulting in k performance estimates, which can then be averaged. Note that also a standard deviation and/or confidence interval can be calculated, if desired. Common choices for k are 5 and 10.
+
+In its most extreme case, cross validation becomes leave-one-out cross validation whereby every observation is left out in turn and a model is estimated on the remaining k-1 observations. This gives k analytical models in total. In stratified cross validation, special care is taken to make sure the Good/Bad odds are the same in each fold.
+
+A key question to answer when doing cross validation is what should be the final model that is being output from the procedure. Since cross validation gives multiple models, this is not an obvious question. Of course, one could let all models collaborate in an ensemble setup. A more pragmatical answer would be to do leave-one-out cross validation and pick one of the models at random. Since the models differ up to one observation, they will be very similar anyway. Alternatively, one may also choose to build one model on all observations and use that as the final model. The corresponding performance is then the performance as it comes out of the cross validation procedure.
+Single-Sample Method
+For small data sets (say, less than 100 observations), the single sample method can be used. Here, we will not split up the data into subsets, but rather calculate the performance as a function of training error and model complexity. The idea is to penalize complex models, since they are more likely to fit the noise in the data and thus overfit. Popular examples here are the Akaike Information Criterion (AIC) and the Bayesian Information Criterion (BIC), also called the Schwarz Bayesian criterion (SBC). Each of them quantifies model complexity by looking at the number of estimated parameters. Note that these measures have various links to statistical learning theory.
+
+Here you can see the Akaike information criterion and Bayesian information criterion. The first component of both is −2 times the log likelihood value, which represents the training error. For AIC, the second part is 2 times the number of parameters. For BIC, the second part is the number of parameters multiplied by the logarithm of the number of observations. Obviously, good models should have low AIC or BIC. Note that it is only meaningful to compare the AIC or BIC of models built on the same data set.
+Bootstrapping
+For small samples, you may also use bootstrapping procedures. In bootstrapping, you take samples with replacement from a data set S. Here you can see an example of two bootstrap samples. In the first bootstrap sample, you can see that customers 2 and 3 occur twice. In the second bootstrap sample, you can see that customers 1 and 4 appear twice.
+
+When using bootstrapping, the probability that a customer is not sampled equals 1/n, with n the number of observations in the original data set S. Assuming a bootstrap with n samples, the fraction of customers that is not sampled equals (1 minus 1 divided by n) raised to the power n. For n going to infinity, this expression will approximate e to the power −1, which equals about 0.368. So, 0.368 is the probability that a customer does not appear in the bootstrap and the complement thereof, 0.632, is the probability that a customer does appear in the bootstrap.
+
+Let's now take the bootstrap as the training data and the observations that are in the original data set S, but not in the bootstrap, as the testing data. For the first bootstrap, this means that observations C1 and C4 make up the testing data. For the second bootstrap, this means that observations C3 and C5 make up the testing data. We can then calculate a combined error estimate as follows: Error estimate = 0.368*Error(Training data) + 0.632*Error(Testing data), whereby obviously a higher weight is being put on the testing data performance. Note that the errors themselves can be quantified in various ways, as we will discuss later.
+
+
+ 
+Text Version	Collapse  Print
+Performance Measures for Binary Classification
+
+Overview of Performance Measures for Binary Classification
+Let's now continue and discuss various performance measures for binary classification. The most popular ones are the confusion matrix with the classification accuracy, classification error, sensitivity, and specificity; the receiver operating characteristic curve and the area under the curve; the cumulative accuracy profile curve and accuracy ratio; the lift curve; the Kolmogorov-Smirnov distance; and the Mahalanobis distance.
+Confusion Matrix
+The confusion matrix gives a class-by-class decomposition of the predicted versus the actual class. A customer who is predicted as a good payer and turns out to be a good payer is a true positive. A customer who is predicted as a good payer and turns out to be a defaulter is a false positive. A customer who is predicted as a defaulter but turns out to be a good payer is a false negative. A customer who is predicted as a defaulter and turns out to be a defaulter is a true negative.
+
+Based upon the confusion matrix, various performance measures can be calculated. The classification accuracy measures the percentage of correctly classified observations. The error rate is the complement thereof and thus measures the percentage of incorrectly classified observations. The sensitivity looks at the good payers only, and measures how many of the good payers are classified as good. Vice versa for the specificity. The specificity looks at the defaulters only and measures how many of the defaulters are classified as defaulters. All these measures vary depending upon the cutoff, which is chosen to make the classification.
+
+For example, if the cutoff of a logistic regression model is set at 0, then all customers will be classified as good payers. Hence, this implies that the sensitivity will be 100% and the specificity 0. If the cutoff would have been set at 1, then all customers would have been classified as defaulters. This would correspond to a sensitivity of 0 and a specificity of 100%.
+
+Here you can see these measures illustrated for a data set of five customers. Let's assume we use a cutoff of 0.50. So, all customers with a score above this cutoff are classified as Good, and all customers with a score below this cutoff are classified as Bad. We can now complete the confusion matrix. Sophie and Bob are true positives, since both are good payers and also classified as good payers. David is a false positive, since he was classified as Good, but turned out to be Bad. Emma is a false negative, since she was classified as Bad, but turned out to be Good. Finally, John is a true negative, classified as Bad, and actual status is also Bad. Based upon these numbers, the classification accuracy becomes 60%, the classification error 40%, the sensitivity 67%, and the specificity 50%. Again, note that all these measures depend upon the cutoff. Hence, it would be nice to have a performance measure, which is independent of the cutoff.
+Receiver Operating Characteristic (ROC) Curve for Binary Classification
+Let's start by constructing a table with the sensitivity, specificity, and 1-specificity for various cutoffs as depicted here. Remember, when the cutoff is set at its minimum, 0 in our case, then the sensitivity becomes 1 and the specificity becomes 0. When the cutoff is set at its maximum, 1 in our case, the sensitivity becomes 0 and the specificity becomes 1.
+
+The receiver operating characteristic (ROC) curve then plots the sensitivity versus 1-specificity, as illustrated in the figure. Remember that, in a credit scoring context, the sensitivity is the percentage of Goods predicted to be Good, the specificity is the percentage of Bads predicted to be Bad, and thus 1-specificity is the percentage of Bads predicted to be Good. Note that a perfect model detects all the Goods and all the Bads and thus has a sensitivity of 1 and a specificity of 1, as represented by the upper left corner in the figure. The closer the curve approaches this point, the better the performance. In the figure, the blue scorecard A has a better performance than the red scorecard B.
+
+A problem, however, arises if the curves intersect. In this case, one can calculate the area under the ROC curve, AUC, as a performance metric. The AUC provides a simple figure-of-merit for the performance of the constructed classifier. The higher the AUC the better the performance. The AUC is always bounded between 0 and 1 and can be interpreted as a probability. In fact, it represents the probability that a randomly chosen good customer gets a higher score than a randomly chosen bad customer. Note that the diagonal represents a random scorecard, whereby sensitivity equals 1-specificity for all cutoffs. Hence, a good classifier should have an ROC above the diagonal and AUC bigger than 50%. In other words, the percentage of Goods predicted to be Good should always be higher than the percentage of Bads predicted to be Good.
+Cumulative Accuracy Profile (CAP) Curve
+The cumulative accuracy profile or CAP curve starts by sorting the population from low score to high score and then measures the cumulative percentage of Bads for each decile on the Y axis. Remember, we are assuming that the Bads should receive low scores and the Goods high scores. The perfect model gives a linearly increasing curve up to the sample bad rate, which is 10% in our case, and then stays at 100%. If you would do a random sorting, then you would expect that the Bads are equally spread out across the entire sorted range. In other words, if you consider the first 10% of this random sorting, you would expect 10% of the Bads. Hence, the diagonal again represents the random model obtained by a random sorting. This curve is also referred to as the Lorenz curve, the power curve in Moody's RiskCalc, or the captured event plot in SAS Enterprise Miner.
+
+The CAP curve can be summarized by the accuracy ratio (AR), as depicted in the figure. The accuracy ratio can be calculated as follows: the area below the CAP curve for the current model minus the area below the CAP curve for the random model divided by the area below the CAP curve for the perfect model minus the area below the CAP curve for the random model.
+
+A perfect model will thus have an accuracy ratio of 1 and a random model an accuracy ratio of 0. Note that the accuracy ratio is also often referred to as the Gini coefficient, which is a very popular measure for quantifying scorecard performance. There is also a linear relation between the accuracy ratio and the area under the ROC curve as follows: AR=2*AUC-1.
+Lift Curve
+A lift curve is another important performance metric closely related to the CAP curve. It also starts by sorting the population from low score to high score, again assuming that the Bads should receive low scores. Suppose now that, in the top 10% lowest scores, there are 60% Bads, whereas the total population has 10% Bads. The lift value in this top decile then becomes 60% divided by 10%, or 6. In other words, the lift value represents the cumulative percentage of Bads per decile, divided by the overall population percentage of Bads. Using no model, or a random sorting, the Bads would be equally spread across the entire range, and the lift value would always equal 1. Obviously, the lift curve always decreases as one considers bigger deciles, until it will reach 1. This is illustrated in the figure. Note that a lift curve can also be expressed in a non-cumulative way, and is also often summarized as the top decile lift.
+Kolmogorov-Smirnov (K-S) Distance
+The Kolmogorov-Smirnov distance is a separation measure calculating the maximum distance between the cumulative score distributions of the Good and Bads, P(s|G) and P(s|B), respectively. Note that P(s|G) equals 1- the sensitivity and P(s|B) equals the specificity. The K-S distance metric is then the maximum vertical distance between both curves. It is usually summarized by means of the distance itself and the cutoff at which this distance is measured. In fact, it can also be easily measured on the ROC plot as the maximum vertical distance between the ROC curve and the diagonal, as you can see illustrated right here.
+Mahalanobis Distance
+Another performance measure is the Mahalanobis distance, which is defined as the difference between the mean scores of the Goods and Bads, divided by the pooled standard deviation. Obviously, a high Mahalanobis distance is preferred, because it means that both score distributions are well separated. Closely related is the divergence measure D, which considers the squared difference of the means divided by the average of the sum of both variances. Again, higher values are preferred. Note, however, that the Mahalanobis and divergence measure are seldom used.
+
+Here, you can see two examples of distributions. In the first example, the distributions are well separated, which will result in a high Mahalanobis distance or divergence. In the second example, the distributions are overlapping giving a lower Mahalanobis distance or divergence.
+ Computing Classification Performance Statistics
+In this demonstration, we will illustrate how to program some of the scorecard performance metrics discussed in the course.
+
+We start by defining a data set perf containing information about the scores and actual Good-Bad status. The scores can come from an application or behavioral scorecard, for example. Let’s run this data set.
+
+Using PROC SQL, we first count the number of Goods and Bads in the perf data set and store these counts in the goods and bads variables respectively. We then introduce another variable, all, which is the sum of the number of Goods and Bads. In other words, this represents the total number of observations.
+
+In a next step, we build a new data set discrimstat, which will contain all the measures needed to plot the ROC, Kolmogorov-Smirnov, and CAP curves. The data set starts from the perf data set. Using the RETAIN statement, it creates two variables, g and b, which are both initialized to 0. The g and b variables count the number of Goods and Bads at each of the score values. Both variables are then used to calculate the sensitivity and specificity values. We then also define variables for 1-specificity and 1-sensitivity. The KS variable is then the difference between the specificity and 1-sensitivity and is needed to plot the Kolmogorov-Smirnov curve. Finally, the percentile variable is also defined to plot the CAP curve. 
+
+Let’s run this data set and then quickly inspect it in the work library. Here you can see the discrimstat data set with all the statistics.
+
+We are now ready to plot all three curves. We start by plotting the ROC curve using PROC GPLOT. Remember, the ROC plot is a plot of sensitivity versus 1-specificity. Let’s run this statement and inspect the plot. 
+
+As you can see, the ROC plot lies above the diagonal, which implies that the scorecard performs better than a random scorecard. We can now also plot the Kolmogorov-Smirnov curve. Remember, this is a plot of 1-sensitivity and specificity versus the score. The K-S distance is then the maximum vertical distance between those two curves. Finally, we can plot the CAP curve as the specificity versus the percentile. 
+
+Again, as with the ROC curve, also here the CAP curve lies above the diagonal.
+
+
+
+Performance Measures for Multiclass Classification
+
+Overview of Performance Measures for Multiclass Classification
+The performance measures discussed thus far are performance measures for binary classification. In case of building a corporate credit scoring model and hereby adopting a shadow-rating approach, the classification becomes a multiclass classification with ordinal targets. In what follows, we will discuss the following multiclass performance metrics: the confusion matrix, a notch difference graph, and the area under the ROC curve.
+Confusion Matrix for Multiclass Classification
+Here, you can see an example of a confusion matrix for a multiclass classification problem. Instead of two classes, we now have 15 classes. The on-diagonal elements, represented in gray, correspond to the correct classifications. Off-diagonal elements represent errors. Note, however, that not all errors have equal impact. Given the ordinal nature of the target variable, the further away from the diagonal, the bigger the impact of the error. For example, in the confusion matrix, there are 34 C+ observations predicted as C, which is not as bad as the one C+ predicted as D.
+Notch Difference Graph
+The numbers in the confusion matrix can be visualized in a notch difference graph, which depicts the cumulative accuracy for increasing notch differences between the predicted and true rating. At the 0notch difference, we are only considering the observations for which the predicted rating is equal to the true rating. At the 1-notch difference, we also include observations where the difference between the predicted and true rating is only one notch. For example, predicting an A as either A+ or A- will be included in the 1-notch accuracy. At the 2-notch difference, we will then also include an A+ predicted as an A-, and so on. When representing the cumulative accuracy on the Y axis, the notch difference graph will obviously increase for an increasing notch difference and reach 100% at some point. In the example graph given, at the 0-notch difference level, the performance equals about 35%, which may not seem that very good. However, by allowing for a 1-notch difference, the performance almost doubles to around 75%, which is a lot better.
+
+You can then also inspect the distribution of the predicted versus the true or external ratings. This can give you insight into whether your model tends to under- or overestimate the true rating. It also allows to see what ratings are hard to predict. The graph can also be represented in a cumulative way as you can see right here.
+Area Under the ROC Curve for Multiclass Classification
+Finally, the area under the ROC curve can be generalized to the multiclass setting in two possible ways. First, you can plot an ROC graph for each class against all other classes, calculate the AUC, and take the weighted average whereby the weights correspond to the prior probability of each class. This is very similar to the one-versus-all procedure, which we discussed earlier for multiclass classification. Another option is to calculate an AUC for each possible class comparison and then take the average. This is similar to the one-versus-one procedure, also discussed earlier for multiclass classification.
+
+

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.40.3" />
+
+
+<title>6 cl dog 6 - A Hugo website</title>
+<meta property="og:title" content="6 cl dog 6 - A Hugo website">
+
+
+
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/rstudio/blogdown">GitHub</a></li>
+    
+    <li><a href="https://twitter.com/rstudio">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">14 min read</span>
+    
+
+    <h1 class="article-title">6 cl dog 6</h1>
+
+    
+    <span class="article-date">2018/05/16</span>
+    
+
+    <div class="article-content">
+      <p>Introduction Variable selection is an important activity during model creation. The idea of variable selection is to carefully choose those variables that are needed to make a default risk classification. Credit scoring data sets typically contain many variables. Especially, behavioral scoring data sets can easily contain a few hundred variables. However, not all variables will turn out to be relevant to the scorecard.</p>
+<p>In this lesson, we will outline a step-by-step approach to do variable selection. First, we will introduce filter methods, which work independently of the classification technique. We will then zoom into forward, backward, and stepwise regression methods. We will conclude by covering AUC-based variable selection.</p>
+<p>Objectives</p>
+<p>In this lesson, you learn to do the following: • describe the process of variable selection • identify the criteria for variable selection • describe the following methods of variable selection: filter methods, forward/backward/stepwise regression, and AUC-based variable selection</p>
+<p>Text Version Collapse Print Fundamentals of Variable Selection</p>
+<p>Importance of Variable Selection Popular synonyms for variables are features, attributes, characteristics, and inputs. Hence, variable selection is also referred to as feature selection, attribute selection, characteristic selection, or input selection. If you have a total of n variables, then the number of possible variable configurations equals the number of subsets of the n variables, which is 2 to the power n−1. We subtract 1 to ignore the empty variable subset. Hence, as the number of variables n grows, the number of possible variable subsets increases exponentially. Good heuristic search procedures are thus needed to guide us toward the optimal variable subset. Good variable subsets contain variables that are highly correlated to the class or default target, but uncorrelated to each other. Variable selection is done for various reasons. First, it allows to make the models more compact and thus easier to interpret. It also reduces the time needed to estimate the model. Finally, variable selection can even improve model performance.</p>
+<p>The curse of dimensionality states that more variables for a given set of observations makes the prediction task a lot more difficult since the number of required training set observations increases exponentially. Hence, too many variables can have a negative effect on model performance. In other words, it is important to remove irrelevant and redundant variables.</p>
+<p>As you can see, there is a difference between a variable being redundant and a variable being irrelevant. Remember, if you have two variables that are highly correlated, then it means that they measure similar things. Hence, if both are related to default risk, then one of them can be left out since this variable is redundant. However, that does not mean that it’s irrelevant.</p>
+<p>To summarize, when you do variable selection on a real life credit scoring data set, it may well be that different optimal variable subsets can be found due to the correlation patterns in the data. Criteria for Variable Selection Besides statistical significance or predictive power, also other criteria could be used to assist in the variable selection. A first one is the interpretability of a variable. Does a variable have the expected sign in the regression model? For example, you would expect that debt has a negative impact on credit risk. If it, however, turns out that it has a counterintuitive sign, then further inspection is needed to see where this comes from. Also, although interactions may make sense from a statistical viewpoint, they are typically not considered because they make the models harder to interpret.</p>
+<p>Also, the computational cost of a variable needs to be taken into account. This reflects the amount of computational resources needed to calculate the values of a variable. Although trend variables can be very informative and thus predictive, they are typically more resource intensive to compute. This may be less suitable in the real-time, online, credit scoring environment. Hence, if possible, they may be replaced by other, correlated variables, which are easier to calculate.</p>
+<p>Finally, there is more and more regulation in terms of what variables can or cannot be used for credit scoring. For example, in the United States, there is the Equal Credit Opportunity Act, which states that you cannot discriminate based upon gender, age, ethnic origin, nationality, beliefs, etc. Hence, these variables cannot pop up in a credit scorecard. Other countries have other regulations and you should clearly be aware of this.</p>
+<p>Methods of Variable Selection</p>
+<p>Variable-Selection Procedure We will adopt a three-step approach toward variable selection. First, we will apply a filter procedure for quick screening of the variables, independent of the classification technique. In a second step, we will do forward, backward, or stepwise regression based upon the p-values of the variables. Step 3 then selects variables based upon directly optimizing the area under the ROC curve. Filter Methods of Variable Selection Here you can see an overview of various filter methods. Filter methods measure the univariate correlation between each of the variables and the target. If this correlation is above some threshold, the variable is kept for further analysis. What filter methods to use depends upon the variable and the target. If the variable is continuous, such as income, and the target is continuous, such as LGD, then the Pearson correlation can be used. If the variable is continuous and the target is categorical, such as default risk, then you can use a Fisher score. If the variable is categorical such as industry sector and the target is continuous, then a Fisher score or analysis of variance, ANOVA, approach can be used. Finally, if the variable is categorical and the target is categorical, then you can use chi-square analysis summarized into Cramer’s V, for example, information value or entropy-based measures such as gain. Let’s discuss these into more detail.</p>
+<p>The Pearson correlation measures the linear association between two continuous variables. It always ranges between -1 and +1. Variables that are related to the target can either have a strong positive relation to it, or a strong negative relation. Hence, when looking for variables that are important to be kept in the analysis, you can look for those variables that have the highest Pearson correlation in absolute value. You can also perform a statistical test to see whether there is a statistically significant linear relationship or not. Alternatively, you can continue the analysis with those variables for which the absolute value of the Pearson correlation is bigger than 0.50 or with the top 10%.</p>
+<p>Chi-square-based filters can be used when you have categorical variables and a categorical target, such as for PD modeling. Here you can see an example for a Marital Status variable. Let’s say it has only two values: Married and Not Married. The table with the observed frequencies shows us the frequencies as they were empirically obtained from the data. The table with the independence frequencies shows us the frequencies in case there would be perfect independence between the marital status and the Good-Bad status. Remember, under the independence assumption, we have that P(married and good payer) = P(married)<em>P(good payer), or 0.6</em>0.8, or thus 0.48. The expected number of good payers that are married then becomes 0.6<em>0.8</em>1000, or 480. The other numbers are calculated in a similar way.</p>
+<p>We can now contrast the observed frequencies with the independence frequencies. If there would be a perfect 100% match, it would mean that we have independence, or in other words, marital status is not related to Good-Bad risk. For a predictive variable, the observed and independence frequencies should be as different as possible.</p>
+<p>The degree of dissimilarity between both frequencies can now be quantified using a chi-square statistic as you can see here. It is the sum of the ratios of the squared difference between the observed and independence frequencies, divided by the independence frequencies. It basically quantifies the difference between both tables and follows a chi-square distribution with k-1 degrees of freedom, with k being the number of classes of the variable, which is 2 in our case. The bigger the value of the chi-square statistic, the lower the corresponding p-value and the more predictive the variable is. Hence, in order to apply it as a filter, we can calculate the p-values of the variables, sort them and then proceed with the top x%.</p>
+<p>The chi-square value can also be summarized into Cramer’s V statistic. This is the square root of the chi-square value divided by the number of observations. Again, high values are preferred. A popular threshold when filtering using Cramer’s V is 0.1. Variables that have a Cramer’s V above 0.1 are kept for further analysis and the other ones can be removed.</p>
+<p>The information value measure can also be used for variable selection. It was already discussed earlier when talking about data preprocessing. It is based upon the weights of evidence as you can see in the formula here. Also, here a threshold of 0.1 can be used. Variables that have an information value above 0.1 are kept for further analysis and the other ones can be removed. Finally, you can also use entropy-based measures, such as gain, to measure variable importance. Remember that the gain measures the decrease in impurity, measured either using entropy or Gini, when splitting on a variable. Note that usually all these measures give very similar results, so you can just pick the one, which is readily available in the software. In SAS, all these measures can be easily calculated.</p>
+<p>Here you can see an example of these measures for various variables of the applicants data set. The applicants data set is a publicly available application scoring data set. You can clearly see that all three measures perfectly agree when ranking the variables according to their predictive performance.</p>
+<p>Let’s say you have a continuous variable, such as income, and a binary target, such as good or bad payer. To gauge the predictive power of income, the Fisher score calculates the difference between the mean income for the Goods and Bads, and divides that by the square root of the sum of the variances. A higher value indicates a better separation between the distribution of Goods and Bads for the income variable, which means that the variable has a better predictive power. It can also be used if the target is continuous, such as LGD, and the variable is categorical, such as employment status. In case there are more than two classes of the target or variable, an analysis of variance, ANOVA, can be conducted. Here you can see the Fisher score for the continuous variables Duration, Amount, and Age for the applicants data set.</p>
+<p>To summarize, filter methods operate independently of the classification technique and allow for quick filtering of the variables. However, since they work univariately, or thus, on a variable-by-variable basis, they don’t take into account correlations between variables. Hence, other variable selection procedures need to be considered. Using Chi-Square Analysis to Filter Variables In this demonstration, we will illustrate how to calculate Cramer’s V statistic in SAS.</p>
+<p>We can run PROC FREQ on the applicants data set and ask for a crosstabulation between each categorical variable and the target. Using the chi-square option allows us to ask for the chi-square statistic and the corresponding Cramer’s V measure. Here we run it on the marital status variable. Let’s execute the statement and inspect the output.</p>
+<p>The output starts by showing the crosstabulation of marital status versus the good_bad target with various percentages indicating relative proportions. This table then displays the corresponding statistics including the chi-square statistic and Cramer’s V. You can see that it is just below 0.1, which is often used as a cutoff to decide whether to keep the variable for further analysis or not.</p>
+<p>Logistic Regression Methods for Variable Selection Forward, backward, and stepwise variable selection methods rely upon the output of the logistic regression model to decide upon variable importance. More specifically, a hypothesis test will be conducted as follows. The null hypothesis states that the beta coefficient of variable i equals 0, whereas the alternative hypothesis states that it’s not 0. This hypothesis, also known as the Wald test, will now be evaluated with a chi-square test. Under the null hypothesis, it can be shown that the squared ratio of the coefficient and its standard error, as obtained by the maximum likelihood optimization procedure, follows a chi-square distribution with 1 degree of freedom. This is very intuitive. An important variable should have a high coefficient in absolute terms, and a low standard error compared to it, which will consequently result into a high chi-square value. The chi-square value can then be summarized into a p-value, which indicates the area to the right of the value in the chi-square distribution.</p>
+<p>Hence, to summarize, a predictive variable has a high chi-square value or thus a low p-value. Vice versa, a variable with a high p-value indicates that the chi-square value is situated in the center of the chi-square distribution, which means that the null hypothesis can be accepted and that the variable is thus not important.</p>
+<p>Common rules of thumb are that if the p-value is less than 0.01, then the variable is highly significant. If the p-value is between 0.01 and 0.05, then the variable is significant. If the p-value is between 0.05 and 0.1, then the variable is weakly significant, and if the p-value is bigger than 0.1, then the variable is not significant. Three popular schemes for using the p-values for input selection are forward selection, backward selection, and stepwise selection.</p>
+<p>Forward selection starts from the empty model with no variables and always adds variables based upon low p-values. Backward elimination starts from a full model with all variables and always deletes variables based upon high p-values. Stepwise regression starts as forward regression, but checks whether added variables cannot be removed later because their p-values have become too high.</p>
+<p>Here you can see an example of a variable space with four variables: age, income, marital status, and employment status. Remember, when you have four variables, the number of variable subsets equals 2 to the power 4 minus 1, or 15, as you see depicted right here. For only four variables, it could be worthwhile to just exhaustively evaluate all of the variable subsets and pick the best one. However, as the number of variables grows bigger, the variable space expands exponentially and exhaustive enumeration is no longer feasible. Heuristic search procedures are thus needed. Forward regression navigates this space in a top-down way. It starts at the top and then moves down, each time adding variables based upon low p-values. Backward regression navigates this variable space in a bottom-up way. It starts at the bottom and removes variables based upon high p-values. As said, stepwise regression is a mix between both. It starts off like forward regression but verifies whether variables cannot be left out in case their p-values become too large.</p>
+<p>Here you can see the output of this stepwise regression procedure. You can see that first, the checking variable was entered, followed by duration, history, purpose, savings, coapp, and installp. The latter was then immediately removed, because it turned out that its p-value in the model was too big. Performing Stepwise Logistic Regression In this demonstration, we will illustrate how to do stepwise logistic regression in SAS.</p>
+<p>PROC LOGISTIC can be used to build a logistic regression model. The CLASS statement lists the categorical variables and the PARAM=GLM option specifies that we want to create 0/1 dummy variables for them. The MODEL statement then defines the model in terms of its target and predictors. The SELECTION option allows to indicate the input selection procedure. It can be set to forward, backward, or stepwise. The options SLENTRY and SLSTAY allow to set the significance level to either enter the model or stay in the model. Let’s now run this statement and inspect its output.</p>
+<p>The output starts by presenting some general information about the data, like the number of observations, Good-Bad distribution, and the dummy coding of the categorical variables. We then see a step-by-step overview of the various variables entered in the model. First, the intercept is added, followed by checking, duration, history, purpose, savings, co-applicant, installment percentage, marital status, amount, other, and resident. The latter variable is immediately removed back again because its p-value turned out to be too high once in the model. This table shows the summary of the stepwise selection procedure. Here you can then see the final model coefficients and corresponding p-values. The output concludes with the odds ratio estimates and some performance statistics.</p>
+<p>AUC-Based Variable Selection A final variable selection step works by directly optimizing the AUC. It starts in a backward way from the model with all variables. In a second step, it removes each variable in turn and re-estimates the model. You then remove the variable whose absence gives the best AUC. You repeat this procedure until the AUC decreases significantly. To give an example, if you start off with 50 variables, you estimate all 50 models having 49 variables. Out of those 50 models, you keep the one with the highest AUC. You then proceed and estimate all 49 models with 48 variables. You again keep the one with the highest AUC and proceed.</p>
+<p>If you plot the AUC versus the number of variables, you will see that the AUC will first typically stagnate, or maybe even slightly increase, before it starts to significantly go down. The optimal number of variables can then be situated around the elbow point.</p>
+<p>Here you can see an illustration of this. We started off with 14 variables and an AUC of 73.3%. The optimal number of variables was set to be 8. This was decided in collaboration with the management, by evaluating the trade-off between maximizing the AUC and minimizing the number of variables in the model.</p>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+    
+
+    
+  </body>
+</html>
+
