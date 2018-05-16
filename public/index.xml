@@ -52,6 +52,35 @@ Measuring the performance of an application scorecard, behavioral scorecard, or 
     </item>
     
     <item>
+      <title>cl dog 7</title>
+      <link>/2018/05/16/cl-dog-7/</link>
+      <pubDate>Wed, 16 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/05/16/cl-dog-7/</guid>
+      <description>After you have created a classification model, you want to know how well the model performs in predicting the default risk of new observations. New observations are observations or customers that were not used to develop the model. In other words, they were not used to estimate the parameters or train the model.
+Measuring the performance of an application scorecard, behavioral scorecard, or corporate credit scoring model is by no means a trivial exercise.</description>
+    </item>
+    
+    <item>
+      <title>cl dog 8</title>
+      <link>/2018/05/16/cl-dog-8/</link>
+      <pubDate>Wed, 16 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/05/16/cl-dog-8/</guid>
+      <description>Lesson Overview
+Introduction Now that we have created our application and behavioral credit scoring models, we can continue to Level 2 of our credit risk model architecture by defining the default ratings and calibrating the PD. This is the final step in the PD modeling process. It is, however, an essential step, since the PDs will directly be input into the Basel Capital requirements formula to calculate the necessary buffer capital.</description>
+    </item>
+    
+    <item>
+      <title>cl dog eleven</title>
+      <link>/2018/05/16/cl-dog-eleven/</link>
+      <pubDate>Wed, 16 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/05/16/cl-dog-eleven/</guid>
+      <description>Introduction Let’s now assume that our PD, LGD, and EAD models have been built. The next step is then to put them into production and start monitoring or validating them. In this lesson, we will discuss various ways of validating credit risk models. In what follows, you will first gain insight into the regulatory aspects of validation, as well as learning key terms and principles. Next, you will learn about the characteristics of quantitative and qualitative validation.</description>
+    </item>
+    
+    <item>
       <title>cl dog second basel</title>
       <link>/2018/05/16/cl-dog-second-basel/</link>
       <pubDate>Wed, 16 May 2018 00:00:00 +0000</pubDate>
