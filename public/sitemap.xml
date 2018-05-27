@@ -3,6 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/2018/05/27/9-cl-dog-lgdog/</loc>
+    <lastmod>2018-05-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2018/05/27/stress-thirteen-dog/</loc>
+    <lastmod>2018-05-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2018/05/24/ead-dog-ten/</loc>
+    <lastmod>2018-05-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/2018/05/21/crpl/</loc>
     <lastmod>2018-05-21T00:00:00+00:00</lastmod>
   </url>
@@ -78,8 +93,12 @@
   </url>
   
   <url>
+    <loc>/1/01/01/</loc>
+  </url>
+  
+  <url>
     <loc>/</loc>
-    <lastmod>2018-05-21T00:00:00+00:00</lastmod>
+    <lastmod>2018-05-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -96,7 +115,7 @@
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2018-05-21T00:00:00+00:00</lastmod>
+    <lastmod>2018-05-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

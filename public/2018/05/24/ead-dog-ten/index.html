@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.40.3" />
+
+
+<title>ead dog ten - A Hugo website</title>
+<meta property="og:title" content="ead dog ten - A Hugo website">
+
+
+
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/rstudio/blogdown">GitHub</a></li>
+    
+    <li><a href="https://twitter.com/rstudio">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">16 min read</span>
+    
+
+    <h1 class="article-title">ead dog ten</h1>
+
+    
+    <span class="article-date">2018/05/24</span>
+    
+
+    <div class="article-content">
+      <p>Introduction In this lesson, you learn what exposure at default, or EAD, modeling is, the Basel requirements for EAD, and the various methods for building EAD models. Remember, just as with LGD, also EAD has a linear impact on both the expected loss and the Basel Capital. It is thus of key importance to model EAD as accurately as possible.</p>
+<p>We will discuss EAD modeling using the same model architecture we used for both PD and LGD. At Level 0, you start from a development data set of defaulted facilities and prepare it for analysis. At Level 1, you will create models that discriminate the facilities in terms of low or high exposure. Segmentation, regression, or two-stage models can be used for this purpose. Finally, at Level 2, EAD ratings can be defined and corresponding risk measures calibrated. These measures can then directly be used in the Basel capital requirements formula to calculate capital.</p>
+<p>In this lesson, you learn to do the following: • define exposure at default (EAD) • identify the Basel requirements for EAD • describe the following methods of building EAD models: cohort method, fixed-time horizon method, variable-time horizon method, and momentum method • identify the risk factors for predictive modeling of EAD • describe the main approaches for EAD modeling • Text Version Collapse Print Fundamentals of EAD Modeling</p>
+<p>What Is EAD Modeling? Let’s first start by defining the concept of EAD modeling. For on-balance sheet exposures, such as term loans, installment loans, and mortgages, the EAD is defined as the nominal, outstanding balance, net of specific provisions. In other words, it represents the net outstanding debt. The EAD decreases as the loan matures and it needs to be reconsidered at the time of capital calculation. There can be no downward adjustment applied for amortization or expected prepayments. The EAD is thus floored at the current outstanding balance.</p>
+<p>For off-balance sheet exposures, such as credit cards and credit lines, EAD modeling is a bit more complicated. For these exposures, you need to take into account what portion of the undrawn amount is likely to be converted into credit upon default. This can be done by introducing various measures as follows: The credit conversion factor (CCF) is defined as the portion of the undrawn amount, which will be converted into credit. Note that the undrawn amount is equal to the limit minus the drawn amount. The EAD thus becomes the drawn amount plus the CCF times the limit minus the drawn amount.</p>
+<p>The credit equivalent (CEQ) is defined as the portion of the limit likely to be converted into credit. The EAD is then defined as the drawn amount plus the CEQ times the limit. The limit conversion factor (LCF) or loan equivalent (LEQ) is defined as a fraction of the limit representing the total exposure. The EAD is then defined as the LCF or LEQ times the limit. Finally, the used amount conversion factor (UACF) is defined using the drawn amount as the reference. Hence, the EAD is then computed as the UACF times the drawn amount.</p>
+<p>In the Basel Accord, the credit conversion factor (CCF) approach is used. The CCF ranges between 0 and 1, corresponding with an EAD equal to the drawn amount and limit, respectively. EAD modeling now comes down to estimating the CCF. Some financial institutions don’t bother to develop CCF models and use a conservative approach by consistently setting the CCF to 1. In other words, they assume that the EAD will always be equal to the credit limit upon default of the exposure. EAD According to Basel In what follows, we will see what Basel has to say about EAD modeling. For corporates, sovereigns, and bank exposures, paragraph 310 of the Basel II Accord reads:</p>
+<p>“For off-balance sheet items, exposure is calculated as the committed but undrawn amount multiplied by a CCF. There are two approaches for the estimation of CCFs: a foundation and an advanced approach.”</p>
+<p>Remember, the IRB approach has two sub-approaches: the foundation IRB approach and the advanced IRB approach. In the foundation IRB approach, banks can estimate the PD themselves, but rely on the Accord or local regulators for reference values of the LGD and EAD. In the advanced IRB approach, the bank can estimate all three risk parameters: the PD, LGD, and EAD. Also, remember that the foundation IRB approach was not allowed for retail exposures. The reference values for EAD or thus CCF for corporate, sovereign, and bank exposures are provided in paragraph 83 as follows:</p>
+<p>“Commitments with an original maturity up to one year and commitments with an original maturity over one year will receive a CCF of 20% and 50%, respectively. However, any commitments that are unconditionally cancelable at any time by the bank without prior notice, …, will receive a 0% CCF.”</p>
+<p>For retail exposures, paragraph 334 of the Accord reads:</p>
+<p>“Both on- and off-balance sheet retail exposures are measured gross of specific provisions or partial write-offs. The EAD on drawn amounts should not be less than the sum of (i) the amount by which a bank’s regulatory capital would be reduced if the exposure were written off fully, and (ii) any specific provisions and partial write-offs.”</p>
+<p>This paragraph is then followed by paragraph 335 as follows:</p>
+<p>“For retail off-balance sheet items, banks must use their own estimates of CCFs.”</p>
+<p>Paragraph 336 then considers the issue of a consistent definition of both EAD and LGD as follows:</p>
+<p>“For retail exposures with uncertain future drawdown such as credit cards, banks must take into account their history and/or expectation of additional drawings prior to default in their overall calibration of loss estimates. In particular, where a bank does not reflect conversion factors for undrawn lines in its EAD estimates, it must reflect in its LGD estimates the likelihood of additional drawings prior to default. Conversely, if the bank does not incorporate the possibility of additional drawings in its LGD estimates, it must do so in its EAD estimates.”</p>
+<p>So to summarize, additional drawings prior to default can either be included in LGD or EAD. It is, however, common practice to include those in the EAD definition by using credit conversion factors as discussed earlier. The EU and US regulations also introduce the idea of a margin of conservatism and economic downturn EAD if it turns out that the EAD is volatile over the economic cycle. Note that this is actually very similar to LGD. In fact, also the data observation period is identical to LGD with five years for retail exposures and seven years for corporate exposures. Definition of EAD Earlier on we defined the EAD as the nominal, outstanding balance. Suppose now that banks allow additional drawings post-default with the perspective of a cure or reduced loss. The question now becomes: How should these additional drawings be taken into account? Well, the EAD can be defined in two possible ways to accommodate this.</p>
+<p>A first definition is that the EAD is the exposure at the very moment of default. Additional drawings are not taken into account in EAD, but enter as a cost in LGD. This could easily lead up to an LGD exceeding 100%, if it would turn out that most of the additional drawings were not recovered. The advantage of this definition is that the EAD is fixed at the moment of default and only the LGD is dependent upon the length of the recovery process. Alternatively, the EAD can also be defined as the maximum exposure observed during the recovery process, hereby taking into account any additional drawings. In this case, the LGD is most likely to be less than 100%. A key problem with this approach is that now both the EAD and LGD are dependent upon the length of the recovery process. Hence, when calculating LGD, it is not clear what time point should be chosen for discounting.</p>
+<p>Creating an EAD Model</p>
+<p>Defining and Measuring EAD Let’s now have a look at how we can create the development sample for EAD or CCF modeling. For defaulted exposures, the EAD at the moment of default can be determined. We now need to consider a period Δt before the time of default to determine the risk factors and drawn amount. The risk factors are the variables, which will be used as predictors in the CCF model at Level 1. Once the drawn amount is known, the CCF can be calculated as the ratio of the EAD minus the drawn amount, and the limit minus the drawn amount. The development sample then consists of all the default facilities together with their risk factors, and the CCF, which will be our dependent or target variable. A key problem here is how to determine the Δt. The Prudential Regulation Authority in the UK says the following about this:</p>
+<p>“The PRA expects firms to use a time horizon of one year for EAD estimates; unless they can demonstrate that another period would be more conservative.”</p>
+<p>Let’s now have a look at various methods to determine this time horizon and their impact on the composition of the development sample. A first way is the cohort approach. This approach groups defaulted facilities into discrete calendar periods (for example, 12 months) unless another time period would be more conservative and appropriate. It collects information about the risk factors and drawn/undrawn amount at the beginning of the calendar period and the drawn amount at the date of default. Data of different calendar periods can then be pooled for estimation.</p>
+<p>For example, if the calendar period is defined as the 1st of November 2012 to the 31st of October 2013, then information about the risk factors and drawn/undrawn amount is collected on the 1st of November 2012 and the drawn amounts of the defaulted facilities upon default. Facilities can then go into default in January 2013, February 2013, March 2013, until October 2013. In other words, the time lag between the risk factors and the EAD is different for each defaulter depending upon the time of default. This is also what will happen as we will start using our model for predicting the EAD. Some exposures will default in the next three months, four months, five months, etc. Personally, I think this way of creating the development sample is a very natural one.</p>
+<p>The fixed-time horizon method starts by defining a fixed-time horizon, usually 12 months, unless another time horizon would be more conservative and appropriate. It then collects information about the risk factors and drawn/undrawn amount 12 months prior to the date of default, and the drawn amount on the date of default, regardless of the actual calendar date on which the default occurred. For example, if a default occurred on 15 July 2013, then information about the risk factors and the drawn/undrawn amount of the defaulted facilities on 16 July 2012 is used. Hence, the time frame between measuring the risk factors and the CCF is always 12 months. When we will use the model to predict EAD, it kind of always assumes that if default occurs, it will occur exactly 12 months from now. Personally, I am not a big fan of this approach although I have seen it being used a few times in industry.</p>
+<p>About the cohort and fixed-time horizon approach, the Prudential Regulation Authority said the following:</p>
+<p>“EAD estimates can be undertaken on the basis that default occurs at any time during the time horizon (the cohort approach), or at the end of the time horizon (the fixed-horizon approach). The PRA considers that either approach is acceptable in principle.”</p>
+<p>The variable-time horizon approach is a variant of the fixed-time horizon approach whereby several reference times within a chosen time horizon are used to determine the drawn/undrawn amounts and risk factors. For example, the drawn amount upon default is compared to the drawn/undrawn amounts and risk factors one, two, three, or more months before default.</p>
+<p>Finally, the momentum method uses the limit conversion factor (LCF), instead of the credit conversion factor. Hence, it defines the EAD as the LCF times the limit and hereby ignores the currently drawn amount. A practical problem with this approach is that it could lead up to an estimate of the EAD, which is lower than the drawn amount. Hence, a flooring operation should be applied whereby the EAD is always, at the least, the drawn amount, or in other words, the EAD equals the maximum of the drawn amount and the LCF times the limit. This was also confirmed by the PRA as follows: “The PRA expects that EAD estimates should not be less than current drawings.” EAD Modeling The CCF is usually bounded between 0 and 1. A negative CCF can occur when the obligor has paid back a portion of the debt prior to default. For estimation purposes, it is, however, recommended to cap a negative CCF to 0. Also, for prediction, the CCF cannot be negative. The CCF can also exceed 1. This can be due to credit limit changes or off-line transactions, which allow the obligor to exceptionally exceed the credit limit. In other words, the limit communicated to the customer is a soft limit, which the customer can occasionally exceed. If the CCF is above 1, then as the drawn balance increases, the exposure decreases. Let’s illustrate this with a brief example.</p>
+<p>Suppose that the credit limit is 2500 and the CCF equals 110%. If the drawn balance is 1000, then the EAD becomes 2650, as illustrated. However, if the drawn balance equals 1500, then the exposure decreases to 2600. It is recommended to always have the CCF limited between 0 and 1. One way to ensure it is always below 1 is to work with a hard credit limit of which we are absolutely sure that it cannot be exceeded. This hard credit limit can be set based upon historical data or using a confidence level, if needed.</p>
+<p>Let’s now have a look at the risk factors that can be used to predict and model the CCF. A first set of risk factors relates to the type of the obligor. For corporates and banks, credit lines are often not completely utilized at the time of default, whereas retail and SME obligors are more likely to fully utilize or overdraw credit lines. The obligor’s access to other sources of funding is another candidate variable to include. Retail and SME obligors typically have fewer access to alternative sources than large corporate obligors and banks. Factors affecting the borrower’s demand for funding or credit facilities are also interesting to consider. These may be triggered by the expected growth in an obligor’s business. Also interesting to include are the utilization measured as the drawn amount divided by the credit limit, the characteristics of the particular credit facility in terms of industry, geographical region, covenant protection, and finally the credit risk measured by the PD, credit rating, credit bureau score, or behavioral score.</p>
+<p>As already discussed, EAD models can be constructed using the same multilevel architectural framework as used earlier for both PD and LGD. At Level 0, the development data set is constructed with information about the defaulted facilities together with their risk factors and CCFs. It is important that the same default definition is used here as for PD and LGD. At Level 1, the CCF model can be created using the same techniques as for LGD: segmentation, regression, and two-stage models. Note that, just as with LGD, a U-shaped distribution has been observed for the CCF. So also, here the beta distribution trick discussed earlier for LGD can be applied. The performance metrics are also identical: R square, MSE, CAP plots, etc. At Level 2, the definition of the CCF ratings and the economic downturn calibration can be done using the procedures outlined earlier for LGD. Case Study: CCF Modeling for a UK Bank In what follows, we will briefly present a case study on CCF modeling for a UK bank as discussed in the reference cited by Brown and Mues. The data set was obtained from a major UK financial institution and contains monthly data on credit-card usage for a three-year period from January 2001 to December 2004. A bi-modal distribution was observed for the CCF with a peak at 0 and 1. Again, note the similarity with an LGD distribution, which is also often bimodal with peaks at 0 and 1.</p>
+<p>The authors started from the risk factors or variables first defined by Moral in the reference citation. More specifically, they included the following: the committed amount, which is the advised credit limit at the start of the cohort; the drawn amount, which is the exposure at the start of the cohort; the undrawn amount, which is the advised limit minus the exposure at the start of the cohort; the credit percentage usage, which is the exposure at the start of the cohort divided by the advised credit limit at the start of the cohort; the time to default, which is the number of months between the start of the cohort and the default date; and the rating class, which is the behavioral score at the start of the cohort, binned into four categories. Note that the variable, time to default, is interesting to include from an exploratory analysis perspective, but can obviously not be used for prediction, as the time of default is unknown then.</p>
+<p>Besides the Moral variables, Brown and Mues also included the following variables: the average number of days delinquent during the previous 3, 6, 9, and 12 months prior to the start of the cohort; the increase in committed amount, which is a binary variable indicating whether there has been an increase in the committed amount since 12 months prior to the start of the cohort; the undrawn percentage, which is the undrawn amount at the start of the cohort divided by the advised credit limit at the start of the cohort; the relative change in drawn, undrawn, and committed amount; and the absolute change in drawn, undrawn, and committed amount.</p>
+<p>Here, you can see the results of analyzing the CCF data set with various techniques such as ordinary least squares regression using only the Moral variables, ordinary least squares regression using the variables defined by Brown and Mues, a binary logit, and a cumulative logit model. From the table, it can be seen that amongst the significant variables, we find the credit percentage usage, the committed amount, the undrawn amount, the time-to-default, the rating class, and the average number of days delinquent in the last six months. It can be seen that all four models are quite similar in terms of variable significance levels and coefficient signs. Of the additional variables tested, only the average number of days delinquent in the last six months turned out to be significant. Here you can see the performance of the various models. Note that the maximum performance in terms of R square equals about 0.10, which is rather low and also similar to the low performances obtained for LGD modeling. Correlation between PD, LGD, and EAD To conclude, let’s say a few more words about the correlation between the various risk parameters. We already discussed the correlation of PDs across obligors, which was captured by the asset correlation factor in the Basel Accord. This factor was determined using some empirical, but not published procedure. A positive correlation between PD and LGD is also often found. PDs are usually higher during economic downturns when collateral asset values get depressed also, resulting in higher than average LGDs. As the correlation between PD and LGD increases, the level of credit risk also increases. Note, however, that both PD and LGD are treated as independent in the Basel Accords.</p>
+<p>Finally, a correlation between PD and EAD can also be detected. Consider, for example, a revolving credit or credit card. If the financial distress worsens, the obligor might try and draw down as much as possible on his or her existing unutilized credit lines in order to avoid default, hereby significantly increasing the EAD risk. All these correlations are important to be aware of during both modeling as well as stress testing, as we will discuss later.</p>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+    
+
+    
+  </body>
+</html>
+

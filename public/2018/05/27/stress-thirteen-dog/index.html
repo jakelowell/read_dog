@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.40.3" />
+
+
+<title>stress thirteen dog - A Hugo website</title>
+<meta property="og:title" content="stress thirteen dog - A Hugo website">
+
+
+
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/rstudio/blogdown">GitHub</a></li>
+    
+    <li><a href="https://twitter.com/rstudio">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">17 min read</span>
+    
+
+    <h1 class="article-title">stress thirteen dog</h1>
+
+    
+    <span class="article-date">2018/05/27</span>
+    
+
+    <div class="article-content">
+      <p>In this lesson, we will zoom into stress testing. Stress testing is an activity, which is done once the PD, LGD and EAD models have been built. Its purpose is to analyze how credit risk models behave under adverse internal or external circumstances. We will discuss various ways of doing stress testing, such as sensitivity-based stress testing, historical and hypothetical scenario-based stress testing, and Pillar 1 versus Pillar 2 stress testing.</p>
+<p>In this lesson, you learn to do the following: • define stress testing • describe the challenges in stress testing • describe sensitivity-based stress testing • describe the following approaches to scenario-based testing: portfolio-driven, event-driven, historical, and hypothetical • identify the characteristics of Pillar 1 and Pillar 2 stress testing • describe macroeconomic methods for stress testing • identify the methods of stress testing governance • Text Version Collapse Print Fundamentals of Stress Testing</p>
+<p>What Is Stress Testing? Let’s start with some definitions about stress testing. In a working group report published in 2005, the Bank of International Settlements, BIS, defined it as follows:</p>
+<p>“Stress testing is a risk management tool used to evaluate the potential impact on a firm of specific events and/or movements in a set of financial variables.”</p>
+<p>The events, which are referred to here, are obviously adverse events such as macroeconomic downturns. The financial variables that are of particular interest in this lesson are the PD, LGD, and EAD. A definition of a stress test was then provided by the Basel Committee on Banking Supervision as follows:</p>
+<p>“A stress test is commonly described as the evaluation of the financial position of a bank under a severe but plausible scenario to assist in decision making within the bank.”</p>
+<p>The idea of a severe but plausible scenario is very important here. Let’s work this out a bit further. Here you can see the loss distribution in terms of default risk. Remember, PD represents the expected loss, which is supposed to be covered by provisions. α* represents the 99.9% worst-case default loss, taking into account the asset correlation. It can be calculated using the Vasicek formula as we discussed earlier. The unexpected loss is then α* minus the PD and must be covered by the Basel Capital. When doing stress testing, the idea is now to study the behavior in the tail, or in other words, to the right of α*. These tail events represent severe but plausible scenarios. An obvious question is, “Why do we need stress testing?” An answer you will often get is because it’s required under the Basel guidelines. However, besides regulatory value, stress testing is also valuable from a business perspective.</p>
+<p>First, it can be used to help set pricing and product features. The output of a stress testing exercise can be helpful to determine the spread above the risk-free rate when pricing loans. It also allows to capture the impact of exceptional but plausible loss events. Value-at-risk models, as discussed earlier, typically reflects everyday market behavior. As already mentioned, stress testing looks into the tail of the loss distribution to study the impact of abnormal markets. It also allows to get a clear picture on the risk profile of the firm. Especially important here is to comprehensively aggregate the risks across various credit portfolios and market instruments such as options, which often exhibit nonlinear behavior.</p>
+<p>Stress testing also allows to allocate capital or verify capital allocation between and within credit portfolios. As such, it may come in handy when setting soft limits. It also gives insight into the T of a classical SWOT (strengths, weaknesses, opportunities, and threats analysis). This will also give a better picture and understanding of model risk. Finally, stress testing may allow to reduce procyclicality effects, whereby, due to a too cyclical nature of capital, economic downturns are further amplified. Regulatory Perspective on Stress Testing Let’s now zoom into the regulatory perspective on stress testing. Here you can see what Basel has to say about it. Let’s read it together.</p>
+<p>“For this purpose, the objective is not to require banks to consider worst-case scenarios. The bank’s stress test in this context should, however, consider at least the effect of mild recession scenarios. In this case, one example might be to use two consecutive quarters of zero growth to assess the effect on the bank’s PDs, LGDs, and EADs, taking account – on a conservative basis – of the bank’s international diversification.”</p>
+<p>Obviously, the idea of a mild recession scenario needs to be unambiguously qualified and quantified, as we will discuss in what follows. Further input has been provided by the EU regulation as follows:</p>
+<p>“An institution shall have in place sound stress-testing processes for use in the assessment of its capital adequacy. Stress testing shall involve identifying possible events for future changes in economic conditions that could have unfavorable effects on an institution’s credit exposures and assessment of the institution’s ability to withstand such changes.” And…</p>
+<p>“The test to be employed shall be meaningful and consider the effects of severe, but plausible, recession scenarios. An institution shall assess migration in its ratings under the stress-test scenarios.”</p>
+<p>Again, note the idea of a severe but plausible scenario, which we already introduced earlier. Challenges in Stress Testing Various challenges arise when doing stress testing. A first one relates to the various regulatory authorities, which impose stress testing. Popular examples are the International Monetary Fund (IMF), European Banking Authority (EBA), Bank of International Settlements (BIS), and the local regulators. A key concern relates to the often observed discrepancies in terms of severity of the imposed stress tests. A more homogeneous, aligned, and consistent definition of stress testing would be much welcomed here.</p>
+<p>Stress testing is also more developed for market risk than for credit risk. Market-risk stress testing is typically conducted on a daily basis, whereas credit-risk stress testing typically occurs less frequently. Ideally, to get a corporate-wide view on the impact of a stress-testing scenario, both market risk and credit risk should be integrated. Unfortunately, this is still far away for most financial institutions. One of the key difficulties here concerns the time horizon and confidence levels adopted, which are typically not identical. Hence, both market- and credit-risk stress testing scenarios are typically hard or even impossible to integrate. Given its strategic impact, it is of key importance to also actively engage senior management to define and interpret the stress tests conducted. In credit risk, many institutions are increasing the frequency of stress testing from annually to quarterly. Also, there seems to be more and more consensus in the industry that a stress event corresponds to a 1-out-of-25-years event.</p>
+<p>Text Version Collapse Print Process of Stress Testing</p>
+<p>Types of Stress Tests Here, you can see a taxonomy of stress-testing approaches as it was introduced by the Monetary Authority of Singapore (MAS) already in 2002. A high-level distinction can be made between scenario and sensitivity tests. A single-factor sensitivity test analyzes the impact of varying a single variable. A multifactor sensitivity test varies multiple variables simultaneously, ideally by taking into account the correlation between them. A scenario test can be historical, whereby the impact of a historical adverse event is re-enacted. It can also be hypothetical when a new scenario is devised. This can be done in a systematic way using correlation, simulation, and extreme-value theory. It can also be done in a non-systematic way by assuming a worst-case scenario or by using expert-based input. Let’s zoom in to a bit more detail in what follows. Sensitivity-Based Stress Testing Let’s start by discussing sensitivity-based stress testing. The idea here is to gauge the impact of changing one variable. This is a static approach, which does not take into account external effects, such as macroeconomic information. Single-factor sensitivity tests have been very popular for market risk. Some examples are a yield curve shift by 100 basis points or a decrease in £:$ exchange rate of 5%. In credit risk, a single-factor sensitivity stress test can be conducted at each of the levels of the credit risk model architecture, as we discussed earlier. At Level 0, the data can be stressed (for example, an income drop of 10%, an increase in loan to value ratio of 20%, a rise in unemployment of 5% etc.). At Level 1, the scores can be stressed. For example, assume all application and behavioral scores drop by 5%. At Level 2, the ratings and PD can be stressed. For example, downgrade every obligor with one notch, such that a AAA-rated obligor becomes a AA-rated obligor, a AA-rated obligor an A-rated obligor, etc. Also, the PD can be multiplied with a stress factor.</p>
+<p>The advantage of sensitivity-based stress tests is that they are very easy to understand. They are also typically used in the starting-up phase of a stress-testing exercise. Their key shortcoming is that it is hard to defend the connection with changes in economic conditions. A multifactor stress test tests multiple variables simultaneously. When conducted appropriately, it takes into account the correlation between the various variables such that it quickly will become a scenario test.</p>
+<p>Here you can see some examples of sensitivity tests. Remember, many firms refer to a stress event as a 1-out-of-25-years event. This is the same as saying an event that occurs four times every 100 years. In other words, we are looking at the 96% worst-case default rate. This can be easily computed using the Basel Capital requirements formula we discussed earlier. You can see this depicted here. Another approach is by shifting the variable distribution. Here you can also see an example of this. Suppose the histogram at the bottom left shows the distribution of the loan-to-value variable. You can then compute the fifth decile or median, and the ninth decile. A sensitivity test can then be conducted by shifting the median up to the ninth decile and then gauging the impact on all risk measurements. Note that, depending upon the meaning of the variable, it might also be the case that the median shifts up to the first decile. This would be the case for the income variable, since a lower income more closely corresponds to a stress event.</p>
+<p>Here you can see some other examples of sensitivity-based stress testing. • An immediate 100% increase of PDs and an immediate increase of 50% of LGDs, or for example, LGD=50% becomes LGD=75%. • An immediate two-notch downgrade of 50% of all exposures, or for example, half of the Aa1 exposures are downgraded to Aa3. • An immediate six-notch downgrade of 10% of all exposures, or for example, 10% of the Aa1 exposures are downgraded to Baa1. Click the Information button to view more examples of sensitivity tests for stress testing. Scenario-Based Testing A next approach to stress testing is scenario-based testing. The idea here is to work out an adverse shock event and gauge the impact on the various parameters. Typically, the source of the shock and the parameters affected are well defined. Scenarios can be defined in various ways, such as portfolio-driven versus event-driven, or historical versus hypothetical. Defining a scenario usually involves a trade-off between realism and comprehensibility.</p>
+<p>In the portfolio-driven approach, you can start from the portfolio characteristics. A key question to start off with here is, “What are the risk parameter changes that result in a portfolio loss?” This question should be decomposed across the various levels of the credit risk model architecture. For example, at Level 2, a key parameter is the PD. At Level 1, you can think of application and behavioral scores, and at Level 0, you can then further consider data characteristics such as debt ratio, income, unemployment, credit bureau score, etc. A next step is then to define events, or thus, a scenario that brings about adverse changes in any of these data variables. An event-driven approach works the other way around. It starts from identifying an event or risk source, which causes adverse changes in financial markets. From there onwards, it is studied how these changes affect the risk parameters and corresponding portfolio loss. This is also referred to as bottom-up or reverse stress testing.</p>
+<p>In historical-scenario stress testing, historical stress scenarios are analyzed and re-enacted in the current portfolio. Since you can here rely on actual past events, fewer qualitative judgments are needed by the business experts. Note, however, that the future not always resembles the past, so this approach might be less suited to the current situation because of changes in portfolio, strategy, or both.</p>
+<p>Historical recession scenarios are sometimes also referred to as black-swan events. Examples are: • European sovereign crisis, 2010/2011 • subprime and US credit crisis, 2008/2009 • Enron/WorldCom, 2002 • September 11, 2001 • dot-com bubble burst, 2000 • Russian credit crisis, August 1998 • Asian currency crisis, Summer 1997 The Hong Kong Monetary Authority (HKMA) gave a very nice example of a historical stress-testing scenario as follows:</p>
+<p>“At a minimum, a mildly stressed scenario chosen by the Authorized Institution should resemble the economic recession in Hong Kong in the second half of 2001 and the first quarter of 2002.”</p>
+<p>A key question now concerns the actual implementation of a historical-scenario stress test. This can be done in two ways. A first approach is by applying the migration matrix of a downturn year to the current portfolio. Obviously, this matrix will typically include lots of downturn migrations. A second approach is by applying input parameter evolutions observed during downturn years to the current portfolio. You can here think of an increase in default rates, deterioration of collateral values, and corresponding increase in loan-to-value ratios, etc.</p>
+<p>When no historical scenario is appropriate, hypothetical scenario stress testing might be considered. The idea here is to model a scenario that has not yet happened. Contrary to historical stress testing, the scenario should be forward looking and focus on the vulnerabilities of the portfolio and/or firm. Since you cannot rely on historical events, this will require more qualitative judgment from the business expert. Historical data can, however, be useful to analyze relationships and correlations, which can then be extrapolated in the hypothetical scenario. Ideally, the scenario should also include dynamic projections of firm revenue, income/losses, and other balance-sheet figures. Note that these scenarios are more labor intensive but likely also more relevant. They should also be defined in a comprehensive way by taking into account corporate banker behavior toward stress events. Examples here are adjusting the underwriting standards or marketing programs, cutting dividends, raising capital, etc.</p>
+<p>When defining hypothetical scenarios, you should first thoroughly analyze the various factors that may cause stress. A first example here are macroeconomic downturns, such as successive periods of GDP contraction. This is mostly considered by financial institutions nowadays. Other examples are deterioration in reputation, an adverse change in competitive position, failure of a market counterparty, or liquidity conditions.</p>
+<p>Various types of hypothetical scenarios can be thought of. A first one is the worst-off scenario. The idea here is to look at the most adverse movement in each risk factor. Obviously, this is a very conservative scenario and not that plausible since it ignores the correlations between the various risk factors. Note that it is commonly applied though. A second one is a subjective scenario. Here, expert-based input is used to qualitatively define the stress scenario. The quality of the scenario will then depend upon the experience of the expert. Also, simulations can be used to analyze the behavior of the loss distribution under stressed conditions.</p>
+<p>Ideally, the simulations should be backed by appropriate correlation analysis. The idea here is to stress some factors and use the correlation matrix to simulate values of the rest. A popular example concerns the correlation between PD and LGD, or default and loss rates. Note, however, that correlations are time varying and may be different during stress and non-stress periods. Expert input may come in handy to adjust the empirically observed correlations. Also, the asset correlation values as reported in the Basel Accords can be useful here.</p>
+<p>Finally, extreme value theory can also be used for stress testing. Typically, the loss distribution is assumed normal or log normal. It has been shown in earlier research that under extreme stress, the tail of the distribution is fatter than normal. The theory of stochastic processes then allows to identify suitable extreme distributions for stress testing.</p>
+<p>In the United States, hypothetical scenario stress testing has been further elaborated within the context of the Comprehensive Capital Analysis and Review (CCAR), which was conducted by the Federal Reserve to evaluate the capital planning processes and capital adequacy of the largest bank holding companies. The CCAR enforces supervisory stress testing to verify whether firms would have sufficient capital in times of severe economic and financial stress to continue to lend to households and businesses. A hypothetical stress scenario was then defined as all of the following during a nine-quarter period: unemployment at 13%, 50% drop in equity prices, and 21% decline in housing prices. The impact of this scenario can then be evaluated using simulation and correlation analysis, as discussed earlier.</p>
+<p>Click the Information button to view more examples of stress testing scenarios. Pillar 1 and Pillar 2 Stress Testing Another distinction in stress testing is between Pillar 1 and Pillar 2 stress testing, although this is not clear cut. Typically, Pillar 1 stress testing focuses on an “economic-cycle” stress test for IRB firms. It only considers the impact on credit risk and usually involves an economic recession scenario, qualified as an instantaneous shock. It should be consistent with the Pillar 2 capital-planning scenario and consider the full-blown impact of a stress scenario. Hence, it is usually also referred to as a gross stress test. Pillar 2 stress testing goes one step further and considers the ICAAP or internal capital adequacy assessment process. It hereby considers all risks, not just credit, but also, for example, concentration and reputation risk. It analyzes the impact on capital requirements and capital resources. It also considers the impact of management actions as a response to stress, such as raise extra capital, cut dividends, reduce business volume, etc. Hence, it is also referred to as a net stress test.</p>
+<p>Here, you can see this further worked out. You can start from a description of the scenario, the source of the shock, and the assumptions made. From there onwards, the scenario is further defined in terms of evolution of variables such as GDP, unemployment, etc. during successive years. This will then allow to qualify and quantify the gross impact on the exposure, risk-weighted assets, capital requirement, profit and loss, etc. In a next step, the impact of management actions can be taken into account. Both these will then ultimately result in the net impact of the stress scenario. Macroeconomic Methods for Stress Testing Let’s now have a closer look at various macroeconomic methods for stress testing. A first approach aims at relating historical default and loss rates to macroeconomic drivers. A second one models the migration matrix as a function of macroeconomic drivers. Economic variables, which are frequently used here, are gross domestic product, unemployment rate, inflation, house price index, etc. Note that both approaches assume the availability of historical data; preferably also including downturn scenarios. A key concern here is that “normal” correlations observed during non-stressed periods break down in stressed times – the very times that need to be modeled. Also, the assumption that the next recession is similar to the previous can be questioned.</p>
+<p>Here you can see both approaches worked out in further detail. In approach 1, a times series model will typically be estimated. Popular techniques here are ARIMA, VAR, and GARCH models. As said, the idea here is to relate default and loss rates to macroeconomic drivers. Also lagged effects can be included. You can here see an example of a single-factor model. The default rate at time t, DRt, is related to the GDP at time t, GDPt. Also, a multivariate model can be used as illustrated: The default rate at time t is related to the GDP at time t and the inflation at time t.</p>
+<p>In approach 2, credit migrations are modeled conditional on the macroeconomic drivers. This will typically be accomplished using a cumulative logistic regression model.</p>
+<p>Important to realize here is that both these approaches can be used to simulate the effect of both historical scenarios as well as hypothetical scenarios. Here you can see the default rate for rating B. Using the approaches we discussed earlier, the curve can be extrapolated using an upturn scenario (green curve), downturn scenario (red curve), or intermediate scenario (yellow curve). Stress Testing Governance To conclude, let’s say a few words about stress-testing governance. Within this context, it is important to appropriately and unambiguously define the following items: • the scope and aim of the stress tests, such as business versus regulatory • the ownership of the stress test • the various contributors, reporting lines, frequency of tests, committees, and so on. Once finalized, the stress-testing results should also be presented to senior management and the board of directors who should make sure that the necessary training and coaching is available. Also, accompanying strategies and actions should be foreseen, if necessary. Finally, the outcome of the stress-testing exercise should be publicly disclosed and documented.</p>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+

@@ -6,10 +6,38 @@
     <description>Recent content on A Hugo website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 21 May 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 27 May 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>9 cl dog lgdog</title>
+      <link>/2018/05/27/9-cl-dog-lgdog/</link>
+      <pubDate>Sun, 27 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/05/27/9-cl-dog-lgdog/</guid>
+      <description>Introduction In this lesson, we will discuss modeling loss given default or LGD. Remember, LGD is a very important risk parameter, since it has a linear impact on the capital requirements. To facilitate the discussion of LGD modeling, we will adopt the same multilevel architecture as we used for PD modeling. At Level 0, we will first review the data preparation. This will be followed by a discussion of how to create an LGD model at Level 1.</description>
+    </item>
+    
+    <item>
+      <title>stress thirteen dog</title>
+      <link>/2018/05/27/stress-thirteen-dog/</link>
+      <pubDate>Sun, 27 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/05/27/stress-thirteen-dog/</guid>
+      <description>In this lesson, we will zoom into stress testing. Stress testing is an activity, which is done once the PD, LGD and EAD models have been built. Its purpose is to analyze how credit risk models behave under adverse internal or external circumstances. We will discuss various ways of doing stress testing, such as sensitivity-based stress testing, historical and hypothetical scenario-based stress testing, and Pillar 1 versus Pillar 2 stress testing.</description>
+    </item>
+    
+    <item>
+      <title>ead dog ten</title>
+      <link>/2018/05/24/ead-dog-ten/</link>
+      <pubDate>Thu, 24 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/05/24/ead-dog-ten/</guid>
+      <description>Introduction In this lesson, you learn what exposure at default, or EAD, modeling is, the Basel requirements for EAD, and the various methods for building EAD models. Remember, just as with LGD, also EAD has a linear impact on both the expected loss and the Basel Capital. It is thus of key importance to model EAD as accurately as possible.
+We will discuss EAD modeling using the same model architecture we used for both PD and LGD.</description>
+    </item>
     
     <item>
       <title>crpl</title>
@@ -17,7 +45,7 @@
       <pubDate>Mon, 21 May 2018 00:00:00 +0000</pubDate>
       
       <guid>/2018/05/21/crpl/</guid>
-      <description></description>
+      <description>1.1 Developments in Credit Risk Management RE Since the beginning of the 1990s, Credit Suisse First Boston (“CSFB”) has been developing and deploying new risk management methods. In 1993, Credit Suisse Group launched, in parallel, a major project aimed at modernising its credit risk management and, using CSFB’s expertise, at developing a more forward looking management tool. In December 1996, Credit Suisse Group introduced CREDITRISK+ - a Credit Risk Management Framework.</description>
     </item>
     
     <item>
@@ -154,6 +182,15 @@ summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
       
       <guid>/2015/01/01/lorem-ipsum/</guid>
       <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/1/01/01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/01/</guid>
+      <description></description>
     </item>
     
   </channel>
