@@ -3,6 +3,36 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/2018/06/04/basel-irb/</loc>
+    <lastmod>2018-06-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2018/06/04/ch-1-ex-cl/</loc>
+    <lastmod>2018-06-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2018/06/04/ch-2-ex-cl/</loc>
+    <lastmod>2018-06-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2018/06/04/ch-3-ex-cl/</loc>
+    <lastmod>2018-06-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2018/06/04/copulas/</loc>
+    <lastmod>2018-06-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2018/06/04/ltmn-lgd/</loc>
+    <lastmod>2018-06-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/2018/05/27/9-cl-dog-lgdog/</loc>
     <lastmod>2018-05-27T00:00:00+00:00</lastmod>
   </url>
@@ -98,12 +128,24 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2018-05-27T00:00:00+00:00</lastmod>
+    <lastmod>2018-06-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/credit/</loc>
+    <lastmod>2018-06-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/lgd/</loc>
+    <lastmod>2018-06-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -115,7 +157,7 @@
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2018-05-27T00:00:00+00:00</lastmod>
+    <lastmod>2018-06-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -139,7 +181,7 @@
   
   <url>
     <loc>/tags/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
+    <lastmod>2018-06-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

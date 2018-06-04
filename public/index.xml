@@ -6,10 +6,67 @@
     <description>Recent content on A Hugo website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 27 May 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 04 Jun 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>basel irb</title>
+      <link>/2018/06/04/basel-irb/</link>
+      <pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/06/04/basel-irb/</guid>
+      <description>This is the Committee’s second consultation on Revisions to the Standardised Approach for credit risk. The Committee wishes to thank all respondents for their extensive feedback on its first consultative document, which was published in December 2014. 1 The revised proposals in this second consultative document aim to address the issues raised by respondents with respect to the initial proposals. These revised proposals also seek to achieve the objectives set out in the first consultative document to balance simplicity and risk sensitivity, to promote comparability by reducing variability in risk-weighted assets across banks and jurisdictions, and to ensure that the standardised approach (SA) constitutes a suitable alternative and complement to the Internal Ratings-Based (IRB) approach.</description>
+    </item>
+    
+    <item>
+      <title>ch 1 ex cl</title>
+      <link>/2018/06/04/ch-1-ex-cl/</link>
+      <pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/06/04/ch-1-ex-cl/</guid>
+      <description>Hi there, welcome to our first video lesson. The aim of this lesson is to give a proper definition of credit risk. Why do we need it? I am pretty sure that every one of you has his or her own definition of credit risk, and this is the point: we need to agree on one single definition. One definition that we can share when we approach credit risk, when we model credit risk.</description>
+    </item>
+    
+    <item>
+      <title>ch 2 ex cl</title>
+      <link>/2018/06/04/ch-2-ex-cl/</link>
+      <pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/06/04/ch-2-ex-cl/</guid>
+      <description>In this week we start dealing with the estimation of the PD of a counterparty in more details.
+We begin with univariate models, where we consider a counterparty at a time. Next week, we will move towards the multivariate extensions, also known as portfolio models, where we have groups of counterparties, and we are interested in modeling the dependence among defaults. All the models we are going to deal with can be used under the IRB approaches of Basel II-III.</description>
+    </item>
+    
+    <item>
+      <title>ch 3 ex cl</title>
+      <link>/2018/06/04/ch-3-ex-cl/</link>
+      <pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/06/04/ch-3-ex-cl/</guid>
+      <description>The aim of this week is to discuss Threshold Models and Mixture Models. Both classes of models represent Portfolio Approaches, in the sense that we are interested in modeling portfolios containing more than one counterparty.
+We are still interested in the PD of each single counterparty, but now we also want to take into account the possibility of joint defaults, trying to model the dependence among different obligors.
+We start with Threshold Models, which can be seen as the multivariate generalizations of the structural models of default we have introduced in Week 2.</description>
+    </item>
+    
+    <item>
+      <title>copulas</title>
+      <link>/2018/06/04/copulas/</link>
+      <pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/06/04/copulas/</guid>
+      <description>When I started writing the paper [19] in 2003 a Google search of the word “copula” gave 10,000 responses. In September 2005 the same search gives 650,000 responses. There is an explosion of activity. What is going on? Many of the web-sites1 found in the Google search are related to mathematical finance, statistics, extreme value theory, and risk management. Everybody who opens any journal on stochastic processes, probability theory, statistics, econometrics, risk management, finance, insurance, etc.</description>
+    </item>
+    
+    <item>
+      <title>ltmn lgd</title>
+      <link>/2018/06/04/ltmn-lgd/</link>
+      <pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/06/04/ltmn-lgd/</guid>
+      <description>Evidence from many countries in recent years suggests that collateral values and recovery rates on corporate defaults can be volatile and, moreover, that they tend to go down just when the number of defaults goes up in economic downturns. This link between recovery rates and default rates has traditionally been neglected by credit risk models, as most of them focused on default risk and adopted static loss assumptions, treating the recovery rate either as a constant parameter or as a stochastic variable independent from the probability of default.</description>
+    </item>
     
     <item>
       <title>9 cl dog lgdog</title>

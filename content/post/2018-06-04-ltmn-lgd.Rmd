@@ -1,0 +1,775 @@
+---
+title: ltmn lgd
+author: ''
+date: '2018-06-04'
+slug: ltmn-lgd
+categories: []
+tags:
+  - lgd
+---
+
+
+Evidence from many countries in recent years suggests that collateral values and
+recovery rates on corporate defaults can be volatile and, moreover, that they tend to go
+down just when the number of defaults goes up in economic downturns. This link
+between recovery rates and default rates has traditionally been neglected by credit risk
+models, as most of them focused on default risk and adopted static loss assumptions,
+treating the recovery rate either as a constant parameter or as a stochastic variable
+independent from the probability of default. This traditional focus on default analysis
+has been partly reversed by the recent significant increase in the number of studies
+dedicated to the subject of recovery rate estimation and the relationship between default
+and recovery rates. This paper presents a detailed review of the way credit risk models,
+developed during the last thirty years, treat the recovery rate and, more specifically, its
+relationship with the probability of default of an obligor. We also review the efforts by
+rating agencies to formally incorporate recovery ratings into their assessment of
+corporate loan and bond credit risk and the recent efforts by the Basel Committee on
+Banking Supervision to consider “downturn LGD” in their suggested requirements
+under Basel II. Recent empirical evidence concerning these issues and the latest data on
+high-yield bond and leverage loan defaults is also presented and discussed.
+Keywords: credit rating, credit risk, recovery rate, default rate
+JEL Classification Numbers: G15, G21, G28
+*This is an updated and expanded review of the original article by Altman, Resti and Sironi (2006).
+**Max L. Heine Professor of Finance and Director of the Credit and Debt Markets Research Program, NYU
+Salomon Center, Stern School of Business, New York, U.S.A.
+1. Introduction
+Three main variables affect the credit risk of a financial asset: (i) the probability of
+default (PD), (ii) the “loss given default” (LGD), which is equal to one minus the recovery
+rate in the event of default (RR), and (iii) the exposure at default (EAD). While significant
+attention has been devoted by the credit risk literature on the estimation of the first
+component (PD), much less attention has been dedicated to the estimation of RR and to the
+relationship between PD and RR. This is mainly the consequence of two related factors.
+First, credit pricing models and risk management applications tend to focus on the
+systematic risk components of credit risk, as these are the only ones that attract risk-premia.
+Second, credit risk models traditionally assumed RR to be dependent on individual features
+(e.g. collateral or seniority) that do not respond to systematic factors, and therefore to be
+independent of PD.
+This traditional focus only on default analysis has been reversed by the recent
+increase in the number of studies dedicated to the subject of RR estimation and the
+relationship between the PD and RR (Fridson, Garman and Okashima [2000], Gupton,
+Gates and Carty [2000], Altman, Resti and Sironi [2001], Altman, Brady, Resti and Sironi
+[2003 and 2005], Frye [2000a, 2000b and 2000c], Hu and Perraudin (2002), Hamilton,
+Gupton and Berthault [2001]), Jarrow [2001]), Jokivuolle and Peura [2003] and Acharya,
+Bharath and Srinivasan (2007). This is partly the consequence of the parallel increase in
+default rates and decrease of recovery rates registered during a substantial part of the 1999-
+2009 period. More generally, evidence from many countries in recent years suggests that
+collateral values and recovery rates can be volatile and, moreover, they tend to go down
+just when the number of defaults goes up in economic downturns. Indeed, first half results
+in 2009 (8.0% year-to-date) indicate that the default rate on high-yield bonds will reach a
+record high level in 2009 and recovery rates will fall to perhaps the lowest level in history,
+at least in the modern high yield bond era (22.5% year-to-date, Altman and Karlin (2009)
+and Keisman and Marshella (2009).
+ This chapter presents a detailed review of the way credit risk models, developed
+during the last thirty years, have treated the recovery rate and, more specifically, its
+relationship with the probability of default of an obligor. These models can be divided into
+two main categories: (a) credit pricing models, and (b) portfolio credit value-at-risk (VaR)
+models. Credit pricing models can in turn be divided into three main approaches: (i) “first
+generation” structural-form models, (ii) “second generation” structural-form models, and
+(iii) reduced-form models. These three different approaches together with their basic
+assumptions, advantages, drawbacks and empirical performance are reviewed in sections 2,
+3 and 4. Credit VaR models are then examined in section 5. The more recent studies
+explicitly modeling and empirically investigating the relationship between PD and RR are
+reviewed in section 6. In Section 7, we discuss BIS efforts to motivate banks to consider
+“downturn LGD” in the specification of capital requirements under Basel II. Section 8
+reviews the very recent efforts by the major rating agencies to provide explicit estimates of
+recovery given default. Section 9 revisits the issue of procyclicality and Section 10
+presents some recent empirical evidence on recovery rates on both defaulted bonds and
+loans and also on the relationship between default and recovery rates. Section 11 concludes.
+2. First generation structural-form models: the Merton approach
+The first category of credit risk models are the ones based on the original
+framework developed by Merton (1974) using the principles of option pricing (Black and
+Scholes, 1973). In such a framework, the default process of a company is driven by the
+value of the company’s assets and the risk of a firm’s default is therefore explicitly linked
+to the variability of the firm’s asset value. The basic intuition behind the Merton model is
+relatively simple: default occurs when the value of a firm’s assets (the market value of the
+firm) is lower than that of its liabilities. The payment to the debtholders at the maturity of
+the debt is therefore the smaller of two quantities: the face value of the debt or the market
+value of the firm’s assets. Assuming that the company’s debt is entirely represented by a
+zero-coupon bond, if the value of the firm at maturity is greater than the face value of the
+bond, then the bondholder gets back the face value of the bond. However, if the value of the
+firm is less than the face value of the bond, the shareholders get nothing and the bondholder
+gets back the market value of the firm. The payoff at maturity to the bondholder is therefore
+equivalent to the face value of the bond minus a put option on the value of the firm, with a
+strike price equal to the face value of the bond and a maturity equal to the maturity of the
+bond. Following this basic intuition, Merton derived an explicit formula for risky bonds
+which can be used both to estimate the PD of a firm and to estimate the yield differential
+between a risky bond and a default-free bond.
+In addition to Merton (1974), first generation structural-form models include Black
+and Cox (1976), Geske (1977), and Vasicek (1984). Each of these models tries to refine the
+original Merton framework by removing one or more of the unrealistic assumptions. Black
+and Cox (1976) introduce the possibility of more complex capital structures, with
+subordinated debt; Geske (1977) introduces interest-paying debt; Vasicek (1984) introduces
+the distinction between short and long term liabilities which now represents a distinctive
+feature of the KMV model1
+.
+Under these models, all the relevant credit risk elements, including default and
+recovery at default, are a function of the structural characteristics of the firm: asset levels,
+asset volatility (business risk) and leverage (financial risk). The RR is therefore an
+endogenous variable, as the creditors’ payoff is a function of the residual value of the
+defaulted company’s assets. More precisely, under Merton’s theoretical framework, PD and
+RR tend to be inversely related. If, for example, the firm’s value increases, then its PD
+tends to decrease while the expected RR at default increases (ceteris paribus). On the other
+side, if the firm’s debt increases, its PD increases while the expected RR at default
+decreases. Finally, if the firm’s asset volatility increases, its PD increases while the
+expected RR at default decreases, since the possible asset values can be quite low relative
+to liability levels.
+Although the line of research that followed the Merton approach has proven very
+useful in addressing the qualitatively important aspects of pricing credit risks, it has been
+less successful in practical applications2
+. This lack of success has been attributed to
+
+ In the KMV model, default occurs when the firm’s asset value goes below a threshold represented by the
+sum of the total amount of short term liabilities and half of the amount of long term liabilities. 2
+ The standard reference is Jones, Mason and Rosenfeld (1984), who found that, even for firms with very
+simple capital structures, a Merton-type model is unable to price investment-grade corporate bonds better than
+a naive model that assumes no risk of default.
+different reasons. First, under Merton’s model the firm defaults only at maturity of the debt,
+a scenario that is at odds with reality. Second, for the model to be used in valuing defaultrisky
+debts of a firm with more than one class of debt in its capital structure (complex
+capital structures), the priority/seniority structures of various debts have to be specified.
+Also, this framework assumes that the absolute-priority rules are actually adhered to upon
+default in that debts are paid off in the order of their seniority. However, empirical
+evidence, such as in Franks and Torous (1994), indicates that the absolute-priority rules are
+often violated. Moreover, the use of a lognormal distribution in the basic Merton model
+(instead of a more fat tailed distribution) tends to overstate recovery rates in the event of
+default.
+3. Second-generation structural-form models
+In response to such difficulties, an alternative approach has been developed which
+still adopts the original Merton framework as far as the default process is concerned but, at
+the same time, removes one of the unrealistic assumptions of the Merton model; namely,
+that default can occur only at maturity of the debt when the firm’s assets are no longer
+sufficient to cover debt obligations. Instead, it is assumed that default may occur anytime
+between the issuance and maturity of the debt and that default is triggered when the value
+of the firm’s assets reaches a lower threshold level3
+. These models include Kim,
+Ramaswamy and Sundaresan (1993), Hull and White (1995), Nielsen, Saà-Requejo, and
+Santa Clara (1993), Longstaff and Schwartz (1995) and others.
+Under these models, the RR in the event of default is exogenous and independent
+from the firm’s asset value. It is generally defined as a fixed ratio of the outstanding debt
+value and is therefore independent from the PD. For example, Longstaff and Schwartz
+(1995) argue that, by looking at the history of defaults and the recovery rates for various
+classes of debt of comparable firms, one can form a reliable estimate of the RR. In their
+model, they allow for a stochastic term structure of interest rates and for some correlation
+between defaults and interest rates. They find that this correlation between default risk and
+
+ One of the earliest studies based on this framework is Black and Cox (1976). However, this is not included
+in the second-generation models in terms of the treatment of the recovery rate.
+
+the interest rate has a significant effect on the properties of the credit spread4
+. This
+approach simplifies the first class of models by both exogenously specifying the cash flows
+to risky debt in the event of bankruptcy and simplifying the bankruptcy process. The latter
+occurs when the value of the firm’s underlying assets hits some exogenously specified
+boundary.
+Despite these improvements with respect to the original Merton’s framework,
+second generation structural-form models still suffer from three main drawbacks, which
+represent the main reasons behind their relatively poor empirical performance5
+. First, they
+still require estimates for the parameters of the firm’s asset value, which is non-observable.
+Indeed, unlike the stock price in the Black and Scholes formula for valuing equity options,
+the current market value of a firm is not easily observable. Second, structural-form models
+cannot incorporate credit-rating changes that occur quite frequently for default-risky
+corporate debts. Most corporate bonds undergo credit downgrades before they actually
+default. As a consequence, any credit risk model should take into account the uncertainty
+associated with credit rating changes as well as the uncertainty concerning default. Finally,
+most structural-form models assume that the value of the firm is continuous in time. As a
+result, the time of default can be predicted just before it happens and hence, as argued by
+Duffie and Lando (2000), there are no “sudden surprises”. In other words, without recurring
+to a “jump process”, the PD of a firm is known with certainty.
+4. Reduced-form models
+The attempt to overcome the above mentioned shortcomings of structural-form
+models gave rise to reduced-form models. These include Litterman and Iben (1991), Madan
+and Unal (1995), Jarrow and Turnbull (1995), Jarrow, Lando and Turnbull (1997), Lando
+(1998), Duffie (1998). and Duffie and Singleton (1999). Unlike structural-form models,
+reduced-form models do not condition default on the value of the firm, and parameters
+related to the firm’s value need not be estimated to implement them. In addition to that,
+reduced-form models introduce separate explicit assumptions on the dynamic of both PD
+
+ Using Moody’s corporate bond yield data, they find that credit spreads are negatively related to interest rates
+and that durations of risky bonds depend on the correlation with interest rates.
+
+and RR. These variables are modeled independently from the structural features of the firm,
+its asset volatility and leverage. Generally speaking, reduced-form models assume an
+exogenous RR that is independent from the PD and take as basics the behavior of defaultfree
+interest rates, the RR of defaultable bonds at default, as well as a stochastic process for
+default intensity. At each instant, there is some probability that a firm defaults on its
+obligations. Both this probability and the RR in the event of default may vary stochastically
+through time. Those stochastic processes determine the price of credit risk. Although these
+processes are not formally linked to the firm’s asset value, there is presumably some
+underlying relation. Thus Duffie and Singleton (1999) describe these alternative approaches
+as reduced-form models.
+Reduced-form models fundamentally differ from typical structural-form models in
+the degree of predictability of the default as they can accommodate defaults that are sudden
+surprises. A typical reduced-form model assumes that an exogenous random variable drives
+default and that the probability of default over any time interval is nonzero. Default occurs
+when the random variable undergoes a discrete shift in its level. These models treat defaults
+as unpredictable Poisson events. The time at which the discrete shift will occur cannot be
+foretold on the basis of information available today.
+Reduced-form models somewhat differ from each other by the manner in which the
+RR is parameterized. For example, Jarrow and Turnbull (1995) assumed that, at default, a
+bond would have a market value equal to an exogenously specified fraction of an otherwise
+equivalent default-free bond. Duffie and Singleton (1999) followed with a model that, when
+market value at default (i.e. RR) is exogenously specified, allows for closed-form solutions
+for the term-structure of credit spreads. Their model also allows for a random RR that
+depends on the pre-default value of the bond. While this model assumes an exogenous
+process for the expected loss at default, meaning that the RR does not depend on the value
+of the defaultable claim, it allows for correlation between the default hazard-rate process
+and RR. Indeed, in this model, the behavior of both PD and RR may be allowed to depend
+on firm-specific or macroeconomic variables and therefore to be correlated.
+ See Eom, Helwege and Huang (2001) for an empirical analysis of structural-form models.
+Other models assume that bonds of the same issuer, seniority, and face value have
+the same RR at default, regardless of the remaining maturity. For example, Duffie (1998)
+assumes that, at default, the holder of a bond of given face value receives a fixed payment,
+irrespective of the coupon level or maturity, and the same fraction of face value as any
+other bond of the same seniority. This allows him to use recovery parameters based on
+statistics provided by rating agencies such as Moody’s. Jarrow, Lando and Turnbull (1997)
+also allow for different debt seniorities to translate into different RRs for a given firm. Both
+Lando (1998) and Jarrow, Lando and Turnbull (1997) use transition matrices (historical
+probabilities of credit rating changes) to price defaultable bonds.
+Empirical evidence concerning reduced-form models is rather limited. Using the
+Duffie and Singleton (1999) framework, Duffee (1999) finds that these models have
+difficulty in explaining the observed term structure of credit spreads across firms of
+different credit risk qualities. In particular, such models have difficulty generating both
+relatively flat yield spreads when firms have low credit risk and steeper yield spreads when
+firms have higher credit risk.
+A recent attempt to combine the advantages of structural-form models – a clear
+economic mechanism behind the default process - and the ones of reduced-form models –
+unpredictability of default - can be found in Zhou (2001). This is done by modeling the
+evolution of firm value as a jump-diffusion process. This model links RRs to the firm value
+at default so that the variation in RRs is endogenously generated and the correlation
+between RRs and credit ratings reported first in Altman (1989) and Gupton, Gates and
+Carty (2000) is justified.
+5. Credit Value-at-Risk Models
+During the second half of the nineties, banks and consultants started developing
+credit risk models aimed at measuring the potential loss, with a predetermined confidence
+level, that a portfolio of credit exposures could suffer within a specified time horizon
+(generally one year). These were mostly motivated by the growing importance of credit
+risk management especially since the now complete Basel II was anticipated to be proposed
+by the BD. These value-at-risk (VaR) models include J.P. Morgan’s CreditMetrics®
+(Gupton, Finger and Bhatia [1997] now provided by the Risk Metrics Group), Credit Suisse
+Financial Products’ CreditRisk+® (1997), McKinsey’s CreditPortfolioView® (Wilson,
+1998), Moody’s KMV’s CreditPortfolioManager®, and Kamakura’s Risk Manager®.
+Credit VaR models can be gathered in two main categories: 1) Default Mode
+models (DM) and 2) Mark-to-Market (MTM) models. In the former, credit risk is identified
+with default risk and a binomial approach is adopted. Therefore, only two possible events
+are taken into account: default and survival. The latter includes all possible changes of the
+borrower creditworthiness, technically called “credit migrations”. In DM models, credit
+losses only arise when a default occurs. On the other hand, MTM models are multinomial,
+in that losses arise also when negative credit migrations occur. The two approaches
+basically differ for the amount of data necessary to feed them: limited in the case of default
+mode models, much wider in the case of mark-to-market ones.
+The main output of a credit risk model is the probability density function (PDF) of
+the future losses on a credit portfolio. From the analysis of such a loss distribution, a
+financial institution can estimate both the expected loss and the unexpected loss on its
+credit portfolio. The expected loss equals the (unconditional) mean of the loss distribution;
+it represents the amount the investor can expect to lose within a specific period of time
+(usually one year). On the other side, the unexpected loss represents the “deviation” from
+expected loss and measures the actual portfolio risk. This can in turn be measured as the
+standard deviation of the loss distribution. Such a measure is relevant only in the case of a
+normal distribution and is therefore hardly useful for credit risk measurement: indeed, the
+distribution of credit losses is usually highly asymmetrical and fat-tailed. This implies that
+the probability of large losses is higher than the one associated with a normal distribution.
+Financial institutions typically apply credit risk models to evaluate the “economic capital”
+necessary to face the risk associated with their credit portfolios. In such a framework,
+provisions for credit losses should cover expected losses6
+, while economic capital is seen as
+a cushion for unexpected losses. Indeed, Basel II in its final iteration (BIS, June 2004)
+separated these two types of losses.
+Credit VaR models can largely be seen as reduced-form models, where the RR is
+typically taken as an exogenous constant parameter or a stochastic variable independent
+from PD. Some of these models, such as CreditMetrics®, treat the RR in the event of
+default as a stochastic variable – generally modelled through a beta distribution -
+independent from the PD. Others, such as CreditRisk+®, treat it as a constant parameter
+that must be specified as an input for each single credit exposure. While a comprehensive
+analysis of these models goes beyond the aim of this review7
+, it is important to highlight
+that all credit VaR models treat RR and PD as two independent variables.
+6. Recent contributions on the PD-RR relationship and their impact
+During the last several years, new approaches explicitly modeling and empirically
+investigating the relationship between PD and RR have been developed. These models
+include Bakshi et al. (2001), Jokivuolle and Peura (2003). Frye (2000a and 2000b), Jarrow
+(2001), Hu and Perraudin (2002), and Carey and Gordy (2003), Altman, Brady, Resti and
+Sironi (2001, 2003 and 2005), and Acharya, Bharath and Srinivasan (2007).
+Bakshi et al. (2001) enhance the reduced-form models presented in section 4 to
+allow for a flexible correlation between the risk-free rate, the default probability and the
+recovery rate. Based on some evidence published by rating agencies, they force recovery
+rates to be negatively associated with default probability. They find some strong support for
+this hypothesis through the analysis of a sample of BBB-rated corporate bonds: more
+precisely, their empirical results show that, on average, a 4% worsening in the (risk-neutral)
+hazard rate is associated with a 1% decline in (risk-neutral) recovery rates.
+A rather different approach is the one proposed by Jokivuolle and Peura (2003). The
+authors present a model for bank loans in which collateral value is correlated with the PD.
+They use the option pricing framework for modeling risky debt: the borrowing firm’s total
+asset value triggers the event of default. However, the firm’s asset value does not determine
+ 6 As discussed in Jones and Mingo (1998), reserves are used to cover expected losses. 7
+ For a comprehensive analysis of these models, see Crouhy, Galai and Mark (2000) and Gordy (2000).
+10
+the RR. Rather, the collateral value is in turn assumed to be the only stochastic element
+determining recovery8
+. Because of this assumption, the model can be implemented using an
+exogenous PD, so that the firm’s asset value parameters need not be estimated. In this
+respect, the model combines features of both structural-form and reduced-form models.
+Assuming a positive correlation between a firm’s asset value and collateral value, the
+authors obtain a similar result as Frye (2000a, b), that realized default rates and recovery
+rates have an inverse relationship.
+The model proposed by Frye draws from the conditional approach suggested by
+Finger (1999) and Gordy (2000). In these models, defaults are driven by a single systematic
+factor – the state of the economy - rather than by a multitude of correlation parameters.
+These models are based on the assumption that the same economic conditions that cause
+defaults to rise might cause RRs to decline, i.e. that the distribution of recovery is different
+in high-default periods from low-default ones. In Frye’s model, both PD and RR depend on
+the state of the systematic factor. The correlation between these two variables therefore
+derives from their mutual dependence on the systematic factor.
+The intuition behind Frye’s theoretical model is relatively simple: if a borrower
+defaults on a loan, a bank’s recovery may depend on the value of the loan collateral. The
+value of the collateral, like the value of other assets, depends on economic conditions. If the
+economy experiences a recession, RRs may decrease just as default rates tend to increase.
+This gives rise to a negative correlation between default rates and RRs.
+While the model originally developed by Frye (2000a) implied recovery to be taken
+from an equation that determines collateral, Frye (2000b) modeled recovery directly. This
+allowed him to empirically test his model using data on defaults and recoveries from U.S.
+corporate bond data. More precisely, data from Moody’s Default Risk Service database for
+the 1982-1997 period were used for the empirical analysis9
+. Results show a strong negative
+
+ Because of this simplifying assumption the model can be implemented using an exogenous PD, so that the
+firm asset value parameters need not be estimated. In this respect, the model combines features of both
+structural-form and reduced-form models.
+ Data for the 1970-1981 period have been eliminated from the sample period because of the low number of
+default prices available for the computation of yearly recovery rates.
+correlation between default rates and RRs for corporate bonds. This evidence is consistent
+with U.S. bond market data, indicating a simultaneous increase in default rates and LGDs
+for the 1999-2002 period10. Frye’s (2000b and 2000c) empirical analysis allows him to
+conclude that in a severe economic downturn, bond recoveries might decline 20-25
+percentage points from their normal-year average. Loan recoveries may decline by a similar
+amount, but from a higher level. In all cases, Frye, and others, compare defaults and
+recoveries just after default, not the ultimate recovery after the restructuring, or recovery
+period.
+Jarrow (2001) presents a new methodology for estimating RRs and PDs implicit in
+both debt and equity prices. As in Frye, RRs and PDs are correlated and depend on the state
+of the macroeconomy. However, Jarrow’s methodology explicitly incorporates equity
+prices in the estimation procedure, allowing the separate identification of RRs and PDs and
+the use of an expanded and relevant dataset. In addition to that, the methodology explicitly
+incorporates a liquidity premium in the estimation procedure, which is considered essential
+in light of the high variability in the yield spreads between risky debt and U.S. Treasury
+securities.
+Using four different datasets (Moody’s Default Risk Service database of bond
+defaults and LGDs, Society of Actuaries database of private placement defaults and LGDs,
+Standard & Poor’s database of bond defaults and LGDs, and Portfolio Management Data’s
+database of LGDs) ranging from 1970 to 1999, Carey and Gordy (2003) analyze LGD
+measures and their correlation with default rates. Their preliminary results contrast with the
+findings of Frye (2000b): estimates of simple default rate-LGD correlation are close to
+zero. They find, however, that limiting the sample period to 1988-1998, estimated
+correlations are more in line with Frye’s results (0.45 for senior debt and 0.8 for
+subordinated debt). The authors postulate that during this short period the correlation rises
+not so much because LGDs are low during the low-default years 1993-1996, but rather
+because LGDs are relatively high during the high-default years 1990 and 1991. They
+therefore conclude that the basic intuition behind Frye’s model may not adequately
+
+10Hamilton, Gupton and Berthault (2001) and Altman, Brady, Resti and Sironi (2003, 2005) provide clear
+characterize the relationship between default rates and LGDs. Indeed, a weak or
+asymmetric relationship suggests that default rates and LGDs may be influenced by
+different components of the economic cycle.
+Using defaulted bonds’ data for the sample period 1982-2002, which includes the
+relatively high-default years of 2000-2002, Altman, Brady, Resti and Sironi (2005),
+following Altman, Resti and Sironi (2001), find empirical results that appear consistent
+with Frye’s intuition: a negative correlation between default rates and RRs. However, they
+find that the single systematic risk factor – i.e. the performance of the economy - is less
+predictive than Frye’s model would suggest. Their econometric univariate and multivariate
+models assign a key role to the supply of defaulted bonds (the default rate) and show that
+this variable, together with variables that proxy the size of the high-yield bond market and
+the economic cycle, explain a substantial proportion (close to 90%) of the variance in bond
+recovery rates aggregated across all seniority and collateral levels. They conclude that a
+simple market mechanism based on supply and demand for the defaulted securities drives
+aggregate recovery rates more than a macroeconomic model based on the common
+dependence of default and recovery on the state of the cycle. In high default years, the
+supply of defaulted securities tends to exceed demand11, thereby driving secondary market
+prices down. This in turn negatively affects RR estimates, as these are generally measured
+using bond prices shortly after default. During periods of low defaults, as we have
+observed in the 2004-2006 cycle, recoveries increase.
+The coincident relationship between high-yield bond default rates and recovery
+rates is shown in Figure 1. This graph shows the association of weighted average default
+rates and recovery rates over the period 1982-2009, using four bi-variate regression
+specifications. The actual regressions are based on data from 1982-2003 and the
+subsequent five years (2004-2009) are inserted to show the regressions estimate compared
+to the actual. Note that the degree of explanatory power is excellent with as much as 65%
+ empirical evidence of this phenomenon.
+11 Demand mostly comes from niche investors called “vultures”, who intentionally purchase bonds in default.
+These investors represented a relatively small (perhaps $100 billion) and specialized segment of the debt
+market. This hedge-fund sector grew considerably, however, in the 2003-2006 period, perhaps more than
+doubling in size (author estimates).
+of the variation in aggregate bond recovery rates explained by just one variable - - the
+aggregate default rate. These regressions include linear (53.6%), quadratic (61.5%), loglinear
+(62.9%) and power function (65.3%) structures. The clear negative relationship
+between default and recovery rates is striking with periods of excess supply of defaults
+relative to demand resulting in unusually low recoveries in such years as 1990, 1991, 2001
+and 2002.
+One can also observe, however, that the most recent years, 2005 and 2006, which
+are part of an extremely low default cycle, show estimates which are far below the actual
+results. For example, our model would have predicted an above average recovery rate of
+about 56% in 2006. Instead, the actual rate was almost 73% as of the end of the third
+quarter. And the 2005 estimate of about 45% compares to the actual recovery rate of over
+60%. Either the model has performed poorly or the default market has been influenced by
+an unusual amount of excess credit liquidity, and perhaps other factors, which have
+changed, perhaps temporarily, the dynamics in the credit markets.
+A recent article (Altman, 2007), argues that there was a type of “credit bubble”
+causing seemingly highly distressed firms to remain non-bankrupt when, in more “normal”
+periods, many of these firms would have defaulted. This, in turn, produced an abnormally
+low default rate and the huge liquidity of distressed debt investors bid up the prices of both
+existing and newly defaulted issues. As we had predicted, a regression to the long-term
+mean, i.e., lower recoveries, and a huge increase in default rates began in 2008 and
+culminated in record high first-half 2009 defaults and near record low recovery rates
+(Altman and Karlin, 2009).
+
+Recovery Rate
+Recovery Rate/Default Rate Association
+Dollar Weighted Average Recovery Rates to Dollar Weighted Average Default Rates
+(1982-2009 (6/30) - Preliminary)
+Source: E. Altman, et. al., “The Link Between Default and Recovery Rates”. Journal of
+Business (2005) and Altman and Karlin (2009).
+Using Moody’s historical bond market data, Hu and Perraudin (2002) also examine
+the dependence between recovery rates and default rates. They first standardize the
+quarterly recovery data in order to filter out the volatility of recovery rates due to changes
+over time in the pool of rated borrowers. They find that correlations between quarterly
+recovery rates and default rates for bonds issued by US-domiciled obligors are 0.22 for
+post-1982 data (1983-2000) and 0.19 for the 1971-2000 periods. Using extreme value
+theory and other non-parametric techniques, they also examine the impact of this negative
+correlation on credit VaR measures and find that the increase is statistically significant
+when confidence levels exceed 99%.
+7. Correlation Results’ Impact and Downturn LGD
+ The impact of the Altman et al. studies of 2001, 2003, as well as the Hu and
+Perraudin (2002) and Frye (2000a, b, and c) studies, was almost immediate, resulting in
+suggested changes in Basel II’s pillar I’s guidelines. Specifically, the final BIS Accord
+(2004) suggested, via its paragraph 468 declaration, a “downturn,” or “stressed” LGD for
+banks. According to this document, IRB banks are required to use estimates of LGD
+parameters, where necessary, to capture the relevant risks. The guidelines were in general
+terms only and left specific details of the quantification process to supervisors to develop in
+collaboration with the banking industry. The underlying theory was that recovery rates on
+defaulted exposures may be lower during economic downturns than during more normal
+conditions and that a capital rule be realized to guarantee sufficient capital to cover losses
+during these adverse circumstances. Paragraph 468 also stated that loss severities may not
+exhibit such cyclical variability, especially if based on ultimate recoveries, and therefore
+LGD estimates of downturn LGD may not differ materially from the long-run weighted
+average.
+ Many banks reacted negatively to this conservative approach and proposed more
+modest adjustments. Indeed, Araten et al. (2004) suggested that correlations are not usually
+material. All of this discussion and debate resulted in a set of more explicit guidelines and
+principles in the BIS (2005) “Guidance on Paragraph 468 of the Framework Document.”
+In this report, the BIS found (1) that there is a potential for realized recovery rates to be
+lower than average during times of high default rates and failing to account for this could
+result in an understatement of the capital required to cover unexpected losses; (2) that data
+limitations pose a difficult challenge to the estimation of LGD in general and particularly in
+downturns; and (3) there is little consensus with respect to appropriate methods for
+incorporating downturn conditions in LGD estimates. The BIS was careful to state that any
+principles be flexible enough to allow for a range of sound practices and to encourage
+continued refinements. In other words, while requiring analysis and reports about
+“downturn LGD” amongst its members, banks appear to be free to specify if there should
+be any penalty or not to their average assessments of LGD parameters.
+ The principles (2005) were that banks must have a rigorous and well documented
+process for assessing, if any, economic downturn’s impact on recovery rates and that this
+process must consist of (1) the identification of appropriate downturn conditions for each
+asset class, (2) identification of adverse dependencies, if any, between default and recovery
+rates and (3) incorporating them to produce LGD estimates. The recovery cash flows
+should utilize a discount rate that reflects the costs of holding defaulted assets over the
+workout period, including an appropriate risk premium. These costs should be consistent
+with the concept of economic loss, not an accounting concept of economic loss (e.g., not
+the interest rate on the old loan). This can be accomplished either with a discount rate
+based on the risk-free rate plus a spread appropriate for the risk of recovery and cost of cash
+flows or by converting the cash flows to certainty equivalents (described in footnote 3 in
+BIS (2005) and discounting these by the risk-free rate, or, by a combination of these
+adjustments to the discount rate.
+ By specifically referring to the stream of cash flows over the restructuring period,
+the BIS, and banks, are embracing the use of ultimate recoveries and not recoveries at the
+time of default. As such, the correlation between default and recovery rates observed in the
+bond markets by several researchers, discussed earlier, may not imply a negative
+correlation between default and ultimate recovery rates. Indeed, there is a timing
+disconnect which may be important, especially if the distressed loan market is not efficient
+and the discounted values of ultimate recoveries are materially different from the recovery
+values at the time of default. Finally, the BIS principles refer to the possibility that stress
+tests performed under normal expected values of recoveries will not produce different
+results than downturn LGD estimates under paragraph 468. It remains to be seen how bank
+regulators will respond to efforts by banks to assess downturn LGD estimates.
+ One regulator in the United States, the Federal Reserve System, has suggested that
+IRB banks in the US use a simple formula to specify downturn LGD, of the form:12
+LGD in Downturn = .08 + .92 LGD,
+Where LGD = long-term LGD average. So, where the long-term LGD equals, for example,
+0.3 (i.e., recovery rates of 0.7), the downturn LGD would increase modestly to 0.33 (about
+10%). If this modification were applied to Foundation Basel II banks, not possible in the
+US, then the downturn LGD = 0.494 on unsecured exposure, (.08 + .92 (.45) = .494), again
+an increase of about 10% of the normal conditions’ expected recovery. For secured loans,
+the analysis requires a stress test on the collateral itself.
+ Miu and Ozdemir (2006) analyze this downturn LGD requirement and suggest that
+the original LGD assessment by banks, without considering PD and RR correlation, can be
+appropriately adjusted by incorporating a certain degree of conservatism in cyclical LGD
+estimates within a point-in-time modeling framework. They find even greater impacts on
+economic capital than even Altman, Resti and Sironi (2001) did - - with as much as an
+increase of 35% - 45% in corporate loan portfolios and 16% for a middle-market portfolio
+to compensate for the lack of correlations. Altman et al. had found, through simulations of
+loan portfolios that about 30% needed to be added. Both studies, however, suggest that
+banks determine these penalties, if any, without abandoning the point-in-time, one-year
+perspective as to estimating LGD.
+Some Final References
+ A number of related studies on LGD can be found in Altman, Resti and Sironi’s
+(2005) anthology. These include Chabane, Laurent and Salomon’s credit risk assessment
+of stochastic LGD and correlation effects, Friedman and Sandow’s conditional probability
+distribution analysis of recovery rates, Laurent and Schmit’s estimation of distressed LGD
+on leasing contracts, DeLaurentis and Riani’s further analysis of LGD in the leasing
+industry, Citron and Wright’s investigation of recovery rates on distressed management
+buyouts and Dermine and Neto de Carvalho’s empirical investigation of recoveries’ impact
+on bank provisions. Schuermann provides an overview on what we know and do not know
+about LGD, as well, in the volume.
+Gupton and Stein (2002) analyze the recovery rate on over 1800 corporate bond,
+loan and preferred stock defaults, from 900 companies, in order to specify and test Moody’s
+LossCalc® model for predicting loss given default (LGD). Their model estimates LGD at
+two points in time – immediately and in one year – adding a holding period dimension to
+the analysis. The authors find that their multifactor model, incorporating micro variables
+(e.g., debt type, seniority), industry and some macroeconomics factors (e.g., default rates,
+changes in leading indicators) outperforms traditional historic average methods in
+predicting LGD.
+Using data on observed prices of defaulted securities in the United States over the
+period 1982-1999, Acharya, Bharath and Srinivasan ( 2007) find that seniority and security
+are important determinants of recovery rates. While this result is not surprising and in line
+with previous empirical studies on recoveries, their second main result is rather striking and
+concerns the effect of industry-specific and macroeconomic conditions in the default year.
+Indeed, industry conditions at the time of default are found to be robust and important
+determinants of recovery rates. They show that creditors of defaulted firms recover
+significantly lower amounts in present-value terms when the industry of defaulted firms is
+in distress and also when non-defaulted firms are rather illiquid and if their debt is
+collateralized by specific assets that are not easily redeployable into other sectors. Also,
+they find that there is little effect of macroeconomic conditions over and above the industry
+conditions and the latter is robust even with the inclusion of macroeconomic factors. ABH
+suggest that the linkage, again highlighted by Altman et al. (2005), between bond market
+aggregate variables and recoveries arises due to supply-side effects in segmented bond
+markets, and that this may be a manifestation of Shleifer and Vishny’s (1992) industry
+equilibrium effect. That is, macroeconomic variables and bond market conditions may be
+picking up the effect of omitted industry conditions. The importance of the “industry”
+factor in determining LGD has been recently highlighted by Schuermann (2003 and 2005)
+in a survey of the academic and practitioner literature.
+Frye (2000a), Pykhtin (2003) and Dullmann and Trapp (2004) all propose a model
+that accounts for the dependence of recoveries on systematic risk. They extend the single
+factor model proposed by Gordy (2000), by assuming that the recovery rate follows a lognormal
+(Pykhtin, 2003) or a logit-normal (Dullmann and Trapp, 2004) one. The latter study
+empirically compares the results obtained using the three alternative models (Frye, 2000a,
+Pykhtin, 2003, and Dullmann and Trapp, 2004). They use time series of default rates and
+recovery rates from Standard and Poor’s Credit Pro database, including bond and loan
+default information in the time period from 1982 to 1999. They find that estimates of
+recovery rates based on market prices at default are significantly higher than the ones
+obtained using recovery rates at emergence from restructuring. The findings of this study
+are in line with previous ones: systematic risk is an important factor that influences
+recovery rates. The authors show that ignoring this risk component may lead to downward
+biased estimates of economic capital.
+8. Recovery Ratings
+ There has been a debate in the practitioner literature about how recovery rates
+impact bond ratings ascribed to default risk estimates from the various major rating
+agencies. One agency, Moody’s, has always maintained that it explicitly considered
+recoveries in the bond rating of a particular corporate issue. Others (S&P and Fitch),
+typically adjusted, through “notching,” the senior unsecured issuer rating based on whether
+the particular issue was investment grade or speculative grade given a certain seniority
+priority. For example, a subordinated issue of an investment grade company was typically
+“down-notched” by one notch and a speculative grade issue was penalized by two notches
+if subordinated. The Moody’s assertion was questionable since prior to the 1990’s there
+simply was no reliable database on recoveries available.
+ Regardless of the “ancient” approaches used, all three rating agencies have recently
+recognized the heightened importance of recoveries for a number of applications including
+Basel II, structured products, the credit default swap market, as well as traditional default
+analysis, and have introduced “Recovery Ratings” as a complementary risk rating indicator.
+ Table 1 reviews these “Recovery Ratings,” first introduced by S&P on US senior
+bank loans in December 2003 and discussed in Chew & Kerr in Altman et. al. (2005).
+Fitch then introduced, in late 2005, their recovery analysis on all highly speculative grade
+issues rated B or below. Finally, Moody’s in September 2006 introduced their rating of US
+non-financial speculative grade issues and expected to do the same in Europe in 2007. We
+expect that all of the rating agencies will expand their coverage if the market deems this
+information valuable.
+ As shown in Table 1, each of the recovery rating classes, six in each case, has a
+quantitative estimate of the proportion of the issue that can be expected to be recovered
+given a default. These range from as high as 100% down to estimates of 0-10%. In
+addition to the recovery percentage estimates, Table 1 reviews each rating agency’s
+methodology for arriving at their estimate. Fundamental valuation techniques are
+employed followed by priority analysis of each issue under consideration.
+ In all cases, the recovery ratings are available in addition to the
+traditional default ratings. It remains to be seen as to the market’s acceptance
+of this second set of ratings and whether they will form a material part of their
+investment decisions.
+9. Recovery Rates and Procyclicality
+Altman et al. (2005) also highlight the implications of their results for credit risk
+modelling and for the issue of procyclicality13 of capital requirements. In order to assess the
+impact of a negative correlation between default rates and recovery rates on credit risk
+models, they run Montecarlo simulations on a sample portfolio of bank loans and compare
+the key risk measures (expected and unexpected losses). They show that both the expected
+loss and the unexpected loss are vastly understated if one assumes that PDs and RRs are
+uncorrelated14. Therefore, credit models that do not carefully factor in the negative
+correlation between PDs and RRs might lead to insufficient bank reserves and cause
+unnecessary shocks to financial markets.
+As far as procyclicality is concerned, they show that this effect tends to be
+exacerbated by the correlation between PDs and RRs: low recovery rates when defaults are
+high would amplify cyclical effects. This would especially be true under the so-called
+“advanced” IRB approach, where banks are free to estimate their own recovery rates and
+might tend to revise them downwards when defaults increase and ratings worsen. The
+impact of such a mechanism was also assessed by Resti (2002), based on simulations over a
+20-year period, using a standard portfolio of bank loans (the composition of which is
+adjusted through time according to S&P transition matrices). Two main results emerged
+
+13 Procyclicality involves the sensitivity of regulatory capital requirements to economic and financial market
+cycles. Since ratings and default rates respond to the cycle, the new internal ratings-based (IRB) approach
+proposed by the Basel Committee risks increasing capital charges, and limiting credit supply, when the
+economy is slowing (the reverse being true when the economy is growing at a fast rate).
+from this simulation exercise: (i) the procyclicality effect is driven more by up- and
+downgrades, rather than by default rates; in other words, adjustments in credit supply
+needed to comply with capital requirements respond mainly to changes in the structure of
+weighted assets, and only to a lesser extent to actual credit losses (except in extremely high
+default years); (ii) when RRs are permitted to fluctuate with default rates, the procyclicality
+effect increases significantly.
+10. Further Empirical Evidence
+ This section focuses on different measurements and the most recent empirical
+evidence of default recovery rates. Most credit risk models utilize historical average
+empirical estimates, combined with their primary analytical specification of the probability
+of default, to arrive at the all-important Loss-Given-Default (LGD) input. Since very few
+financial institutions have ample data on recovery rates by asset-type and by type of
+collateral, model builders and analysts responsible for Basel II inputs into their internal rate
+based (IRB) models begin with estimates from public bond and private bank loan markets.
+Of course, some banks will research their own internal databases in order to conform to the
+requirements of the Advanced IRB approach.
+Early Empirical Evidence
+ Published data on default recovery rates generally, but not always, use secondary
+market bond or bank loan prices. The first empirical study, that we are aware of, that
+estimated default recovery rates was in Altman, Haldeman and Narayanan’s (1977)
+ZETA® model’s adjustment of the optimal cutoff score in their second generation credit
+scoring model. Interestingly, these bank loan recovery estimates did not come from the
+secondary loan trading market -- they did not exist then -- but from a survey of bank
+workout-department experience (1971-1975). The general conclusion from this early
+experience of these departments was a recovery rate on non-performing, unsecured loans of
+only about thirty percent of the loan amount plus accrued interest. The cash inflows for
+three years post-default was not discounted back to default date. We will refer to this
+ 14 Both expected losses and VaR measures associated with different confidence levels tend to be
+underestimated by approximately 30%.
+experience as the “ultimate nominal recovery” since it utilizes post-default recoveries,
+usually from the end of the restructuring period.
+ In later studies, ultimate recovery rates refer to the nominal or discounted value of
+bonds or loans based on either the price of the security at the end of the reorganization
+period (usually Chapter 11) or the value of the package of cash or securities upon
+emergence from restructuring. For example, Altman and Eberhart (1994) observed the
+price performance of defaulted bonds, stratified by seniority, at the time of the restructuring
+emergence as well as the discounted value of these prices. They concluded that the most
+senior bonds in the capital structure (senior secured and senior unsecured) did very well in
+the post-default period (20-30% per annum returns) but the more junior bonds (senior
+subordinated and subordinated) did poorly, barely breaking even on a nominal basis and
+losing money on a discounted basis. Similar, but less extreme, results were found by
+Fridson, et. al., (Merrill Lynch (2001) when they updated (1994-2000) Altman &
+Eberhart’s earlier study which covered the period 1981-1993.
+Other studies that analyzed bank loans recovery rates were by Asarnow and
+Edwards (1995) and Eales and Bosworth (1998). The first study presents the results of an
+analysis of losses on bank-loan defaults based on 24 years of data compiled by Citibank;
+their database comprises 831 commercial and industrial (C&I) loans, as well as 89
+structured loans (highly collateralized loans that contain many restrictive covenants). Their
+results (based on “ultimate” recoveries) indicate a LGD of about 35% for C&I loans (with
+larger loans, above US$ 10 million, showing a somewhat lower loss rate of 29%);
+unsurprisingly, the LGD for structured loans is considerably lower (13%), due to the role
+played by collateral and covenants in supporting the early default-detection and recovery
+processes . In the second study, the authors report the empirical results on recovery rates
+from a foreign bank operating in the United States – Westpac Banking Corporation. The
+study focuses on small business loans and larger consumer loans, such as home loans and
+investment property loans.
+Neto de Carvalho and Dermine (2003) analyze the determinants of loss given
+default rates using a portfolio of credits given by the largest private Portuguese bank
+Banco Comercial Portugues. Their study is based on a sample of 371 defaulted loans to
+small and medium size companies, originally granted during the period June 1985-
+December 2000. The estimates of recovery rates are based on the discounted cash flows
+recovered after the default event. The authors report three main empirical results which are
+consistent with previous empirical evidence: (i) the frequency distribution of loan losses
+given default is bi-modal, with many cases presenting a 0% recovery and other cases
+presenting a 100% recovery, (ii) the size of the loan has a statistically significant negative
+impact on the recovery rate, (iii) while the type of collateral is statistically significant in
+determining the recovery, this is not the case for the age of the bank-company relationship.
+More Recent Evidence
+ In Table 2, we present recent empirical evidence on bank loan recoveries (Keisman,
+Moody’s, 2009) and on corporate bonds by seniority (Altman and Karlin, 2009) based on
+the average prices of these securities just after the date of default. Surprisingly, the highest
+mean recovery rates were on senior unsecured bonds (60%) and bank loans (59.4%)
+followed by senior secured loans (56.3%).15 Although the data from Moody’s and Altman
+were from different periods and samples, it is interesting to note that the recovery on senior
+unsecured bonds (45.9%) was significantly lower than senior unsecured bank loans
+(59.4%). The estimates of median recoveries on the senior-subordinated and subordinated
+bonds were very similar. Similar recoveries on defaulted bonds can be found in Varma, et.
+al. (Moody’s, 2003). Altman and Karlin’s value weighted mean recovery rate on over
+2,300 bond default issues was 37.8%.
+
+15 Interestingly, the comparable median for defaults through 2003 was about 4.5% lower (54.5%), showing
+the considerable increase in default recovery rates on bonds in the period 2004-2009. This recovery rate was
+actually higher through 2008. Also, it is suprising that senior unsecured loans recovered more than senior
+secured loans, at least in terms of arithmetic average metrics. Ultimate recoveries, however (Table 4),
+demonstrate the expected hierarchy, with senior secured bank debt recovering far more than unsecured loans.
+[Table 2 Here]
+Altman and Karlin (2009) further breakdown bond recoveries just after the default
+date by analyzing recoveries based on the original rating (fallen angels vs. original rating
+non-investment grade [“junk”] bonds) of different seniorities. For example, in Table 3, we
+observe that senior-secured bonds, that were originally rated investment grade, recovered a
+median rate of 50.5% vs. just 39.0% for the same seniority bonds that were non-investment
+grade when issued. These are statistically significant differences for similar seniority
+securities. Since fallen angel defaults are much more prominent in some years in the
+United States (e.g., close to 50% in dollar amount of defaults in 2001 and 2002 were fallen
+angels prior to default), these statistics are quite meaningful. Note that for seniorsubordinated
+and subordinated bonds, however, the rating at issuance is of little
+consequence, although the sample sizes for investment grade, low seniority bonds were
+very small. Varma, et. al., (2003) also conclude that the higher the rating prior to default,
+including the rating at issuance, the higher the average recovery rate at default. Apparently,
+the quality of assets and the structure of the defaulting company’s balance sheets favor
+higher recoveries for higher quality original issue bonds.
+[Table 3 Here]
+ In Table 4, we again return to the data on ultimate recoveries and the results are
+from Moody’s (2009) assessment of bank loan and bond recoveries. These results show the
+nominal and discounted (by the loan’s pre-default interest rate) ultimate recovery at the end
+of the restructuring period for well over 3,000 defaulted loans and bonds over the period
+1988-2009. Several items are of interest. First, the recovery on senior bank debt, which is
+mainly secured, was quite high at 87.3% and 77.2% for nominal and discounted values
+respectively. Senior secured and senior unsecured notes, which include loans and bonds,
+had lower recoveries and the more junior notes (almost all bonds) had, not surprisingly, the
+lowest recoveries. Note, the differential between the nominal and discounted recovery rates
+diminish somewhat at the lower seniority levels.
+[Table 4 Here]
+Standard & Poor’s (Keisman, 2004) also finds, not shown in any Table, that during
+the “extreme stress” default years of 1998 to 2002, the recovery rates on all seniorities
+declined compared to their longer 1988-2002 sample period. Since 1998 and 1999 were
+not really high default years, the results of S&P for 2000-2002 are consistent with Altman,
+Brady, Resti and Sironi’s (2001, 2003) predictions of an inverse relationship between
+default and recovery rates. Indeed, recovery rates were a relatively low 25% in the
+corporate bond market for both 2001 and 2002 when default rates were in the double-digits
+but increased to almost 70% in 2006 when default rates tumbled to well below average
+annual levels and then fell to about 22.5% in 2009 (2Q) as defaults surged (Altman and
+Karlin, 2009).
+ Some recovery studies have concentrated on rates across different industries.
+Altman and Kishore (1996) and FITCH (2003) report a fairly high variance across
+industrial sectors. For Example, Verde (FITCH, 2003) reports that recovery rates in 2001
+vs. 2002 varied dramatically from one year to the next (e.g., Gaming, Lodging and
+Restaurants recovered 16% in 2001 and 77% in 2002, Retail recovered 7% in 2001 and
+48% in 2002, while transportation recovered 31% in 2001 and 19% in 2002) but returned to
+more normal levels in 2003.
+Another issue highlighted in some studies, especially those from S&P, (e.g., Van de
+Castle and Keisman, 1999 and Keisman, 2004) is that an important determinant of ultimate
+recovery rates is the amount that a given seniority has junior liabilities below its level; the
+greater the proportion of junior securities, the higher the recovery rate on the senior
+tranches. The theory being that the greater the “equity cushion,” the more likely there will
+be assets of value, which under absolute priority, go first in liquidation or reorganization to
+the more senior trenches.
+11. Concluding remarks
+Table 5 summarizes the way RR and its relationship with PD are dealt with in the
+different credit models described in the previous sections of this paper. While, in the
+original Merton (1974) framework, an inverse relationship between PD and RR exists, the
+credit risk models developed during the 1990’s treat these two variables as independent.
+The currently available and most used credit pricing and credit VaR models are indeed
+based on this independence assumption and treat RR either as a constant parameter or as a
+stochastic variable independent from PD. In the latter case, RR volatility is assumed to
+represent an idiosyncratic risk which can be eliminated through adequate portfolio
+diversification. This assumption strongly contrasts with the growing empirical evidence -
+showing a negative correlation between default and recovery rates – that has been reported
+in the previous section of this paper and in other empirical studies. This evidence indicates
+that recovery risk is a systematic risk component. As such, it should attract risk premia and
+should adequately be considered in credit risk management applications.
+Empirical results, especially demonstrated by historical record high levels of
+recovery in the extreme benign credit environment of 2004-2007 and then the opposite
+credit market turmoil and high defaulted, low recovery environment of 2009, show the
+potential cyclical impact as well as the supply and demand elements of defaults and
+recoveries on LGD. Finally, we feel that the microeconomic/financial attributes of an
+individual issuer of bonds or loans combined with the market’s aggregate supply and
+demand conditions can best explain the recovery rate at default on a particular defaulting
+issue. An even greater challenge is to accurately estimate the ultimate recovery rate on
+individual issue as well as aggregate recoveries when the firm emerges from its
+restructuring. 
