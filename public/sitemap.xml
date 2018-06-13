@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/2018/06/13/occ-cc/</loc>
+    <lastmod>2018-06-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/2018/06/04/basel-irb/</loc>
     <lastmod>2018-06-04T00:00:00+00:00</lastmod>
   </url>
@@ -128,7 +133,7 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2018-06-04T00:00:00+00:00</lastmod>
+    <lastmod>2018-06-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -140,6 +145,12 @@
   <url>
     <loc>/tags/credit/</loc>
     <lastmod>2018-06-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/credit-cards/</loc>
+    <lastmod>2018-06-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -157,7 +168,7 @@
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2018-06-04T00:00:00+00:00</lastmod>
+    <lastmod>2018-06-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
